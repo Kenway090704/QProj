@@ -9,19 +9,29 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/com_bg_wihte"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.aoben.qproj.ui.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
+   <TextView
+       android:layout_width="wrap_content"
+       android:text="已有100人贷款"
+       android:textSize="10sp"
+       android:layout_centerInParent="true"
+       android:layout_height="wrap_content" />
+
+    <com.aoben.qproj.widget.CirclePercentBar
+        android:id="@+id/circle_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
-    <com.aoben.qproj.widget.CirclePercentUI
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:percent="20"
-
-        app:stripeWidth="15dp" />
+        android:layout_gravity="center_horizontal"
+    android:layout_centerInParent="true"
+        app:arcColor="@color/colorPrimary"
+        app:arcStartColor="@color/com_bg_orige_ff9600"
+        app:arcEndColor="@color/com_bg_orige_ff9600"
+        app:arcWidth="3dp"
+        app:centerTextColor="@color/colorAccent"
+        app:centerTextSize="13sp"
+        app:circleRadius="50dp" />
 </RelativeLayout>
