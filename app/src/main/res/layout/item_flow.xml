@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/comm_dim_10"
+
+            android:paddingTop="@dimen/comm_dim_20">
+
+            <ImageView
+                android:layout_width="@dimen/comm_dim_40"
+                android:layout_height="@dimen/comm_dim_40"
+                app:srcCompat="@drawable/ic_detail_icon_data" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/comm_tv_10"
+                android:text="@string/prepare_data"
+                android:textColor="@color/com_tv_gray_666666"
+                android:textSize="@dimen/comm_tv_10" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="@dimen/comm_dim_6"
+            android:layout_height="@dimen/comm_dim_12"
+            android:layout_marginLeft="@dimen/comm_dim_13"
+            android:layout_marginTop="@dimen/comm_dim_34"
+            app:srcCompat="@drawable/ic_detail_icon_right" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/comm_dim_10"
+            android:paddingLeft="@dimen/comm_dim_13"
+            android:paddingTop="@dimen/comm_dim_20">
+
+
+            <ImageView
+                android:layout_width="@dimen/comm_dim_40"
+                android:layout_height="@dimen/comm_dim_40"
+                app:srcCompat="@drawable/ic_detail_icon_apply" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/comm_tv_10"
+                android:text="@string/apply_for_loan"
+                android:textColor="@color/com_tv_gray_666666"
+                android:textSize="@dimen/comm_tv_10" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="@dimen/comm_dim_6"
+            android:layout_height="@dimen/comm_dim_12"
+            android:layout_marginLeft="@dimen/comm_dim_13"
+            android:layout_marginTop="@dimen/comm_dim_34"
+            app:srcCompat="@drawable/ic_detail_icon_right" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/comm_dim_10"
+            android:paddingLeft="@dimen/comm_dim_13"
+            android:paddingTop="@dimen/comm_dim_20">
+
+            <ImageView
+                android:layout_width="@dimen/comm_dim_40"
+                android:layout_height="@dimen/comm_dim_40"
+                app:srcCompat="@drawable/ic_detail_icon_approve" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/comm_tv_10"
+                android:text="@string/approval_from_bank"
+                android:textColor="@color/com_tv_gray_666666"
+                android:textSize="@dimen/comm_tv_10" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="@dimen/comm_dim_6"
+            android:layout_height="@dimen/comm_dim_12"
+            android:layout_marginLeft="@dimen/comm_dim_13"
+            android:layout_marginTop="@dimen/comm_dim_34"
+            app:srcCompat="@drawable/ic_detail_icon_right" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/comm_dim_10"
+            android:paddingLeft="@dimen/comm_dim_13"
+            android:paddingTop="@dimen/comm_dim_20">
+
+
+            <ImageView
+                android:layout_width="@dimen/comm_dim_40"
+                android:layout_height="@dimen/comm_dim_40"
+                app:srcCompat="@drawable/ic_detail_icon_loan" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/comm_tv_10"
+                android:text="@string/land_and_resources_bureau"
+                android:textColor="@color/com_tv_gray_666666"
+                android:textSize="@dimen/comm_tv_10" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="@dimen/comm_dim_6"
+            android:layout_height="@dimen/comm_dim_12"
+            android:layout_marginLeft="@dimen/comm_dim_13"
+            android:layout_marginTop="@dimen/comm_dim_34"
+            app:srcCompat="@drawable/ic_detail_icon_right" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/comm_dim_10"
+            android:paddingLeft="@dimen/comm_dim_13"
+            android:paddingTop="@dimen/comm_dim_20">
+
+            <ImageView
+                android:layout_width="@dimen/comm_dim_40"
+                android:layout_height="@dimen/comm_dim_40"
+                app:srcCompat="@drawable/ic_detail_icon_pledge" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/comm_tv_10"
+                android:text="@string/bank_advance"
+                android:textColor="@color/com_tv_gray_666666"
+                android:textSize="@dimen/comm_tv_10" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</LinearLayout>

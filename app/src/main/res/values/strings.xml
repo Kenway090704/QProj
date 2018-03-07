@@ -1,8 +1,63 @@
 <resources>
     <string name="app_name">QProj</string>
-
+    <string name="copyright">©qianghangjinfu.com</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="bank_product">银行产品</string>
+    <string name="reedom_product">赎楼产品</string>
+    <string name="all_product">全部产品</string>
+    <string name="sex">性别</string>
+    <string name="man">先生</string>
+    <string name="woman">女士</string>
+
+
+    <string name="excellent_saler">明星业务员</string>
+    <string name="saler">业务员</string>
+    <string name="rate_of_interest">月利率</string>
+    <string name="interest">利息</string>
+    <string name="rate_of_interest_6">0.629%</string>
+    <string name="product_name">产品名称:云快贷</string>
+    <string name="apply">已有365人申请</string>
+
+    <string name="money">最快7天放款</string>
+    <string name="limit"> 额度</string>
+    <string name="milion">1000万</string>
+    <string name="year">3年</string>
+    <string name="year_limit">年限</string>
+    <string name="pay_style">还款方式:随借随还/先息后本</string>
+    <string name="advantage">优势:随借随还,不看银行流水,刚过户可进件</string>
+    <string name="input_keyword">请输入关键字</string>
+
+    <string name="application_requirement">申请条件</string>
+    <string name="application_requirement_hint">1、借款人年龄18-60周岁，产权人年龄18-65周岁
+      \n2、借款人可为中国香港人，产权人必须为中国大陆人士
+      \n3、可接受非直系亲属第三方房产抵押
+      \n4、仅接受市场可交易性商品房（例如：住宅，别墅，商铺，公寓，写字楼）
+      \n5、房龄不超过30年（房产证上竣工年限为准）
+      \n6、抵押成数最高为评估价的70%
+</string>
+
+    <string name="prepare_data">准备资料</string>
+    <string name="prepare_data_hint"> 1、身份证明：身份证，户口本，结婚证
+      \n2、房产证明：房产证
+      \n3、信用证明：个人信用报告
+      \n4、营业执照，组织机构代码证，开户许可证，税务登记证，信用机构代码证，公司章程（个体户无需），市场监督管理局，信用网查询，公章，私章，财务章
+      \n5、场地租赁合同
+</string>
+
+    <string name="operational_process">操作流程</string>
+    <string name="apply_for_loan">申请贷款</string>
+    <string name="approval_from_bank">银行审批</string>
+    <string name="land_and_resources_bureau">国土局抵押</string>
+    <string name="bank_advance">银行放款</string>
+    <string name="input_your_name">输入你的名字</string>
+    <string name="input_your_phone">输入你的电话</string>
+    <string name="plz_wait">请耐心等待,我们的业务人员会稍后联系你。</string>
+    <string name="i_want_konw">我要了解</string>
+    <string name="insure">确认</string>
+
+
 </resources>

@@ -1,5 +1,7 @@
 package com.aoben.qproj.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,11 +24,9 @@ import java.util.List;
  * 业务员页面
  */
 
-public class SalesmanActivity extends BaseActivity {
+public class SalesmanActivity extends DrawerBaseActivity {
 
 
-    private DrawerLayout drawer;
-    private QprojToolBar toolBar;
     private RecyclerView rv;
 
 
@@ -54,14 +54,10 @@ public class SalesmanActivity extends BaseActivity {
 
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
-        rv.addItemDecoration(new SalesmanDecoration(7));
 
         rv.setAdapter(new SalesmanAdapter(this, list));
 
 
-        toolBar = (QprojToolBar) findViewById(R.id.acty_salesman_toolbar);
-
-        drawer= (DrawerLayout) findViewById(R.id.drawer_layout);
 
     }
 
@@ -70,17 +66,18 @@ public class SalesmanActivity extends BaseActivity {
 
     }
 
+    public static void actionStart(Context context) {
+        Intent intent = new Intent(context, SalesmanActivity.class);
+        context.startActivity(intent);
+    }
+
     @Override
     protected void initListener() {
 
-        toolBar.getIv().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!drawer.isDrawerOpen(Gravity.LEFT)){
-                    drawer.openDrawer(Gravity.LEFT);
-                }
-            }
-        });
+
 
     }
+
+
+
 }

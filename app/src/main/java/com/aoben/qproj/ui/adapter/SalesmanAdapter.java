@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.util.ResourceUtil;
+import com.aoben.qproj.widget.SalerItemUI;
 
 import java.util.List;
 
@@ -28,12 +30,16 @@ public class SalesmanAdapter extends RecyclerView.Adapter<SalesmanAdapter.Salesm
 
     @Override
     public SalesmanViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new SalesmanViewHolder(LayoutInflater.from(context).inflate(R.layout.adapter_salesman,null));
+        return new SalesmanViewHolder(LayoutInflater.from(context).inflate(R.layout.adapter_saler, null));
     }
 
     @Override
     public void onBindViewHolder(SalesmanViewHolder holder, int position) {
 
+
+        if (position == 0) {
+            holder.siu.setLayoutTool(View.VISIBLE, ResourceUtil.resToStr(R.string.saler), null);
+        }
     }
 
     @Override
@@ -41,11 +47,14 @@ public class SalesmanAdapter extends RecyclerView.Adapter<SalesmanAdapter.Salesm
         return list.size();
     }
 
-    public class  SalesmanViewHolder extends RecyclerView.ViewHolder{
+    public class SalesmanViewHolder extends RecyclerView.ViewHolder {
 
+        private SalerItemUI siu;
 
         public SalesmanViewHolder(View itemView) {
             super(itemView);
+
+            siu = (SalerItemUI) itemView.findViewById(R.id.adapter_saler_siu);
         }
     }
 }

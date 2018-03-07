@@ -13,4 +13,9 @@
         <attr name="arcEndColor" format="color"/>
         <attr name="isWriteText" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="NavItemUI">
+        <attr name="nav_name" format="string|reference"/>
+    </declare-styleable>
+
 </resources>

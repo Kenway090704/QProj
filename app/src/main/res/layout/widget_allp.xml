@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/com_bg_gray_eeeeee"
+    android:orientation="vertical">
+
+
+    <com.aoben.qproj.widget.ProductItemUI
+
+        android:id="@+id/widget_allp_pui_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/comm_dim_7" />
+
+    <com.aoben.qproj.widget.ProductItemUI
+        android:id="@+id/widget_allp_pui_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.aoben.qproj.widget.ProductItemUI
+        android:id="@+id/widget_allp_pui_03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

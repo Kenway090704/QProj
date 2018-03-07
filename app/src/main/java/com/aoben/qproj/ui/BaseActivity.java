@@ -6,12 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 
+import com.aoben.qproj.R;
 import com.aoben.qproj.util.LogUtils;
 
 /**
  * Created by kenway on 18/2/5 15:27
- * Email : xiaokai090704@126.com
+ * Email : x
+ *
+ * iaokai090704@126.com
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -20,6 +24,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 
+
+    private LinearLayout  contentView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //取消标题

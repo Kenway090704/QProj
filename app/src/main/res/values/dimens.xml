@@ -10,22 +10,65 @@
 
     <!--自己创建的-->
     <dimen name="comm_dim_toobar_height">44dp</dimen>
-    <dimen name="comm_dim_13">13dp</dimen>
-    <dimen name="comm_dim_7">13dp</dimen>
-    <dimen name="comm_dim_14">14dp</dimen>
-    <dimen name="comm_dim_16">16dp</dimen>
-    <dimen name="comm_dim_10">10dp</dimen>
-    <dimen name="comm_dim_8">8dp</dimen>
+
+    <dimen name="comm_dim_1">1dp</dimen>
+    <dimen name="comm_dim_2">2dp</dimen>
     <dimen name="comm_dim_3">3dp</dimen>
+    <dimen name="comm_dim_4">4dp</dimen>
+    <dimen name="comm_dim_5">5dp</dimen>
+    <dimen name="comm_dim_6">6dp</dimen>
+    <dimen name="comm_dim_7">7dp</dimen>
+    <dimen name="comm_dim_8">8dp</dimen>
+    <dimen name="comm_dim_9">9dp</dimen>
+    <dimen name="comm_dim_10">10dp</dimen>
+    <dimen name="comm_dim_11">11dp</dimen>
+    <dimen name="comm_dim_12">12dp</dimen>
+    <dimen name="comm_dim_13">13dp</dimen>
+    <dimen name="comm_dim_14">14dp</dimen>
+    <dimen name="comm_dim_15">15dp</dimen>
+    <dimen name="comm_dim_16">16dp</dimen>
+    <dimen name="comm_dim_17">17dp</dimen>
     <dimen name="comm_dim_19">19dp</dimen>
-
-
+    <dimen name="comm_dim_20">20dp</dimen>
+    <dimen name="comm_dim_24">24dp</dimen>
+    <dimen name="comm_dim_25">25dp</dimen>
+    <dimen name="comm_dim_26">26dp</dimen>
+    <dimen name="comm_dim_27">27dp</dimen>
+    <dimen name="comm_dim_28">28dp</dimen>
+    <dimen name="comm_dim_30">30dp</dimen>
+    <dimen name="comm_dim_32">32dp</dimen>
+    <dimen name="comm_dim_34">34dp</dimen>
+    <dimen name="comm_dim_35">35dp</dimen>
+    <dimen name="comm_dim_37">37dp</dimen>
+    <dimen name="comm_dim_38">38dp</dimen>
+    <dimen name="comm_dim_40">40dp</dimen>
+    <dimen name="comm_dim_42">42dp</dimen>
+    <dimen name="comm_dim_44">44dp</dimen>
+    <dimen name="comm_dim_51">51dp</dimen>
+    <dimen name="comm_dim_60">60dp</dimen>
+    <dimen name="comm_dim_65">65dp</dimen>
     <dimen name="comm_dim_100">100dp</dimen>
+    <dimen name="comm_dim_125">125dp</dimen>
     <dimen name="comm_dim_140">140dp</dimen>
+    <dimen name="comm_dim_150">150dp</dimen>
+    <dimen name="comm_dim_157">157dp</dimen>
+    <dimen name="comm_dim_204">204dp</dimen>
+    <dimen name="comm_dim_232">232dp</dimen>
+    <dimen name="comm_dim_280">280dp</dimen>
+    <dimen name="comm_dim_300">300dp</dimen>
 
     <!--字体大小-->
     <dimen name="comm_tv_9">9sp</dimen>
+    <dimen name="comm_tv_10">10sp</dimen>
+    <dimen name="comm_tv_11">11sp</dimen>
+    <dimen name="comm_tv_12">12sp</dimen>
     <dimen name="comm_tv_13">13sp</dimen>
     <dimen name="comm_tv_14">14sp</dimen>
+    <dimen name="comm_tv_15">15sp</dimen>
+    <dimen name="comm_tv_20">20sp</dimen>
+    <dimen name="comm_tv_23">23sp</dimen>
+    <dimen name="comm_tv_30">30sp</dimen>
+    <dimen name="comm_tv_32">32sp</dimen>
+    <dimen name="comm_tv_33">33sp</dimen>
 
 </resources>

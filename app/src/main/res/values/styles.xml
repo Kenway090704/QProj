@@ -16,5 +16,10 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!--***************main tablayout***************-->
+    <style name="tab_txtSize">
+        <item name="android:textSize">13sp</item>
+    </style>
+
 
 </resources>

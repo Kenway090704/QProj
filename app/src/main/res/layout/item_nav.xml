@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_nav_riv"
+        android:layout_width="@dimen/comm_dim_204"
+        android:layout_height="@dimen/comm_dim_100"
+        android:background="@drawable/shape_bg_round_15"
+        android:layout_marginLeft="@dimen/comm_dim_13"
+        android:layout_marginRight="@dimen/comm_dim_13"
+        app:riv_corner_radius="@dimen/comm_dim_1"
+        app:riv_border_color="@color/com_bg_gray_d6d6d6"
+        android:src="@drawable/menu_pic" />
+
+    <TextView
+
+        android:id="@+id/item_nav_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/comm_dim_10"
+        android:text="银行产品"
+        android:textColor="@color/com_tv_black_333333"
+        android:textSize="@dimen/comm_tv_15" />
+</LinearLayout>

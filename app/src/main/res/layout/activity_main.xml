@@ -1,25 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:orientation="vertical">
 
-    <include
-        layout="@layout/app_bar_main"
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/acty_main_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+        android:fillViewport="true">
 
-</android.support.v4.widget.DrawerLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
+
+            <com.bigkoo.convenientbanner.ConvenientBanner
+                android:id="@+id/acty_main_cbanner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comm_dim_150" />
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/acty_main_tab"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comm_dim_40"
+                android:layout_alignParentBottom="true"
+                app:tabBackground="@drawable/selector_tab_bg"
+                app:tabIndicatorHeight="0dp"
+                app:tabSelectedTextColor="@color/com_tv_white_ffffff"
+                app:tabTextAppearance="@style/tab_txtSize"
+                app:tabTextColor="@color/com_tv_orige_ff9600" />
+
+            <com.aoben.qproj.widget.WrapContentHeightViewPager
+                android:id="@+id/acty_main_vp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>
+
+
