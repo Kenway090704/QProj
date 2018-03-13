@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:background="@color/com_bg_white_ffffff"
     android:orientation="vertical">
 
@@ -18,16 +16,16 @@
         <ImageView
             android:id="@+id/item_allp_iv_logo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/y50"
             android:layout_centerVertical="true"
-            android:layout_marginBottom="@dimen/comm_dim_7"
-            android:layout_marginLeft="@dimen/comm_dim_13"
-            android:layout_marginTop="@dimen/comm_dim_7"
+            android:layout_marginBottom="@dimen/y14"
+            android:layout_marginLeft="@dimen/x29"
+            android:layout_marginTop="@dimen/y14"
             android:src="@drawable/list_logo_jianhang" />
 
         <View
-            android:layout_width="@dimen/comm_dim_1"
-            android:layout_height="@dimen/comm_dim_19"
+            android:layout_width="@dimen/y2"
+            android:layout_height="@dimen/x38"
             android:layout_centerInParent="true"
             android:background="@color/com_bg_gray_d6d6d6" />
 
@@ -38,8 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-
-            android:layout_marginRight="@dimen/comm_dim_65"
+            android:layout_marginRight="@dimen/x145"
             android:text="@string/product_name"
             android:textColor="@color/com_tv_black_333333"
             android:textSize="@dimen/comm_tv_14" />
@@ -47,21 +44,20 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/comm_dim_1"
+        android:layout_height="@dimen/y2"
         android:background="@color/com_bg_gray_eeeeee" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:paddingLeft="@dimen/comm_dim_13"
-        android:paddingRight="@dimen/comm_dim_13">
+        android:paddingLeft="@dimen/x29"
+        android:paddingRight="@dimen/x29">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/comm_dim_27"
-            android:layout_marginTop="@dimen/comm_dim_27">
+            android:layout_marginBottom="@dimen/y54"
+            android:layout_marginTop="@dimen/y54">
 
             <TextView
                 android:id="@+id/item_allp_tv_rate"
@@ -72,32 +68,32 @@
                 android:textSize="@dimen/comm_tv_30" />
 
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/item_allp_tv_rate"
-                android:layout_marginTop="@dimen/comm_dim_10"
+                android:layout_marginTop="@dimen/y10"
                 android:text="@string/rate_of_interest"
                 android:textColor="@color/com_tv_gray_999999"
                 android:textSize="@dimen/comm_tv_13" />
         </RelativeLayout>
-
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-
-            android:layout_marginLeft="@dimen/comm_dim_28">
+          >
 
 
             <TextView
-
 
                 android:id="@+id/item_allp_tv_limit_hint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/comm_dim_27"
-                android:layout_marginTop="@dimen/comm_dim_12"
+                android:layout_marginBottom="@dimen/y54"
+                android:layout_marginTop="@dimen/y16"
                 android:text="@string/limit"
                 android:textColor="@color/com_tv_gray_999999"
                 android:textSize="@dimen/comm_tv_13" />
@@ -112,30 +108,28 @@
                 android:textColor="@color/com_tv_black_333333"
                 android:textSize="@dimen/comm_tv_20" />
         </RelativeLayout>
-        <!--<View-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_weight="1"-->
-        <!--android:layout_height="match_parent"/>-->
+        <View
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/comm_dim_28"
+
             android:orientation="vertical">
 
             <TextView
-
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/comm_dim_27"
-                android:layout_marginTop="@dimen/comm_dim_12"
+                android:layout_marginBottom="@dimen/y54"
+                android:layout_marginTop="@dimen/y16"
                 android:text="@string/year_limit"
                 android:textColor="@color/com_tv_gray_999999"
                 android:textSize="@dimen/comm_tv_13" />
 
             <TextView
-
                 android:id="@+id/item_allp_tv_year"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -153,7 +147,6 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical">
 
@@ -166,10 +159,10 @@
                 app:arcColor="@color/colorPrimary"
                 app:arcEndColor="@color/com_bg_orige_ff9600"
                 app:arcStartColor="@color/com_bg_orige_ff9600"
-                app:arcWidth="@dimen/comm_dim_2"
+                app:arcWidth="@dimen/y4"
                 app:centerTextColor="@color/colorAccent"
                 app:centerTextSize="@dimen/comm_tv_13"
-                app:circleRadius="@dimen/comm_dim_38" />
+                app:circleRadius="@dimen/y76" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -190,7 +183,7 @@
                     android:id="@+id/item_allp_tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/comm_dim_5"
+                    android:layout_marginTop="@dimen/y6"
                     android:text="@string/money"
                     android:textColor="@color/com_tv_black_333333"
                     android:textSize="@dimen/comm_tv_9" />
@@ -203,17 +196,17 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/comm_dim_1"
+        android:layout_height="@dimen/y2"
         android:background="@color/com_bg_gray_eeeeee" />
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/comm_dim_10"
-        android:paddingLeft="@dimen/comm_dim_13"
-        android:paddingRight="@dimen/comm_dim_13"
-        android:paddingTop="@dimen/comm_dim_10">
+        android:paddingBottom="@dimen/y20"
+        android:paddingLeft="@dimen/x29"
+        android:paddingRight="@dimen/x29"
+        android:paddingTop="@dimen/y20">
 
         <LinearLayout
             android:id="@+id/item_allp_star"
@@ -224,32 +217,32 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="@dimen/comm_dim_13"
-                android:layout_height="@dimen/comm_dim_13"
+                android:layout_width="@dimen/y26"
+                android:layout_height="@dimen/y26"
                 app:srcCompat="@drawable/ic_list_icon_recommend" />
 
             <ImageView
-                android:layout_width="@dimen/comm_dim_13"
-                android:layout_height="@dimen/comm_dim_13"
-                android:layout_marginLeft="@dimen/comm_dim_3"
+                android:layout_width="@dimen/y26"
+                android:layout_height="@dimen/y26"
+                android:layout_marginLeft="@dimen/x7"
                 app:srcCompat="@drawable/ic_list_icon_recommend" />
 
             <ImageView
-                android:layout_width="@dimen/comm_dim_13"
-                android:layout_height="@dimen/comm_dim_13"
-                android:layout_marginLeft="@dimen/comm_dim_3"
+                android:layout_width="@dimen/y26"
+                android:layout_height="@dimen/y26"
+                android:layout_marginLeft="@dimen/x7"
                 app:srcCompat="@drawable/ic_list_icon_recommend" />
 
             <ImageView
-                android:layout_width="@dimen/comm_dim_13"
-                android:layout_height="@dimen/comm_dim_13"
-                android:layout_marginLeft="@dimen/comm_dim_3"
+                android:layout_width="@dimen/y26"
+                android:layout_height="@dimen/y26"
+                android:layout_marginLeft="@dimen/x7"
                 app:srcCompat="@drawable/ic_list_icon_recommend" />
 
             <ImageView
-                android:layout_width="@dimen/comm_dim_13"
-                android:layout_height="@dimen/comm_dim_13"
-                android:layout_marginLeft="@dimen/comm_dim_3"
+                android:layout_width="@dimen/y26"
+                android:layout_height="@dimen/y26"
+                android:layout_marginLeft="@dimen/x7"
                 app:srcCompat="@drawable/ic_list_icon_recommend" />
         </LinearLayout>
 
@@ -257,7 +250,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/comm_dim_44"
+            android:layout_marginRight="@dimen/x98"
             android:layout_toLeftOf="@+id/item_allp_star"
             android:orientation="vertical">
 
@@ -273,7 +266,7 @@
                 android:id="@+id/item_allp_tv_advantage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/comm_dim_9"
+                android:layout_marginTop="@dimen/y18"
                 android:singleLine="true"
                 android:text="@string/advantage"
                 android:textSize="@dimen/comm_tv_10" />
@@ -283,6 +276,6 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/comm_dim_7"
+        android:layout_height="@dimen/y14"
         android:background="@color/com_bg_gray_eeeeee" />
 </LinearLayout>

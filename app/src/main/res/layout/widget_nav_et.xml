@@ -1,28 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    android:layout_marginRight="@dimen/comm_dim_13"
+    android:layout_marginLeft="@dimen/x29"
+
     android:gravity="center_vertical"
-    android:layout_marginLeft="@dimen/comm_dim_13"
-    android:background="@drawable/shape_bg_round_15"
     android:orientation="horizontal">
-    <ImageView
-        android:layout_width="@dimen/comm_dim_13"
-        android:layout_marginLeft="@dimen/comm_dim_10"
-        app:srcCompat="@drawable/ic_menu_icon_search"
-        android:layout_height="@dimen/comm_dim_13" />
-    <EditText
-        android:id="@+id/widget_nav_et_et"
-        android:layout_width="match_parent"
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/comm_dim_7"
-        android:hint="@string/input_keyword"
-        android:background="@null"
-        android:paddingBottom="@dimen/comm_dim_9"
-        android:paddingTop="@dimen/comm_dim_9"
-        android:textColorHint="@color/com_tv_gray_999999"
-        android:textSize="@dimen/comm_tv_14" />
+        android:layout_weight="1"
+        android:background="@drawable/shape_bg_round_15"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="@dimen/y26"
+            android:layout_height="@dimen/y26"
+            android:layout_marginLeft="@dimen/x22"
+            app:srcCompat="@drawable/ic_menu_icon_search" />
+
+        <EditText
+            android:id="@+id/widget_nav_et_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x16"
+            android:background="@null"
+            android:hint="@string/input_keyword"
+            android:imeOptions="actionSearch"
+            android:paddingBottom="@dimen/y14"
+            android:paddingTop="@dimen/y14"
+            android:singleLine="true"
+            android:textColorHint="@color/com_tv_gray_999999"
+            android:textSize="@dimen/comm_tv_14" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/widget_nav_tv_search"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:paddingLeft="@dimen/x20"
+        android:text="@string/search"
+        android:paddingRight="@dimen/x29"
+        android:textColor="@color/com_tv_black_333333"
+        android:textSize="@dimen/comm_tv_15" />
 </LinearLayout>

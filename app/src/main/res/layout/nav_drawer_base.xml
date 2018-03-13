@@ -9,27 +9,27 @@
         android:id="@+id/nav_drawer_base_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/comm_dim_35" />
+        android:layout_marginTop="@dimen/y70" />
 
     <com.aoben.qproj.widget.NavItemUI
 
         android:id="@+id/nav_drawer_base_nav_01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/comm_dim_24"
+        android:layout_marginTop="@dimen/y48"
         app:nav_name="@string/bank_product" />
 
     <com.aoben.qproj.widget.NavItemUI
         android:id="@+id/nav_drawer_base_nav_02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/comm_dim_40"
+        android:layout_marginTop="@dimen/y80"
         app:nav_name="@string/reedom_product" />
 
     <com.aoben.qproj.widget.NavItemUI
         android:id="@+id/nav_drawer_base_nav_03"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/comm_dim_40"
+        android:layout_marginTop="@dimen/y80"
         app:nav_name="@string/saler" />
 </LinearLayout>

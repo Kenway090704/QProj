@@ -8,9 +8,11 @@ import android.view.ViewGroup;
 
 import com.aoben.qproj.R;
 import com.aoben.qproj.model.ProductBean;
+import com.aoben.qproj.ui.ProductDetailActivity;
 import com.aoben.qproj.util.LogUtils;
 import com.aoben.qproj.util.ResourceUtil;
 import com.aoben.qproj.util.Util;
+import com.aoben.qproj.widget.ProductDetailItem;
 import com.aoben.qproj.widget.ProductItemUI;
 
 import java.util.List;
@@ -40,9 +42,16 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.My
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-        if (position == 0) {
-            holder.productItemUI.setLayoutTool(View.VISIBLE, ResourceUtil.resToStr(R.string.all_product), null);
-        }
+//        if (position == 0) {
+//            holder.productItemUI.setLayoutTool(View.GONE, ResourceUtil.resToStr(R.string.all_product), null);
+//        }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProductDetailActivity.actionStart(v.getContext());
+            }
+        });
 
     }
 

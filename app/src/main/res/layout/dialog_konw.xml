@@ -3,16 +3,14 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="@dimen/comm_dim_204"
-    android:layout_height="@dimen/comm_dim_280"
-
+    android:layout_width="@dimen/x667"
+    android:layout_height="@dimen/y560"
     android:background="@color/common_bg_trans"
     >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-
-    android:layout_height="wrap_content"
+    android:layout_width="@dimen/x667"
+    android:layout_height="@dimen/y560"
     android:background="@drawable/shape_dialog_bg"
     android:orientation="vertical">
 
@@ -22,47 +20,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:paddingBottom="@dimen/comm_dim_10"
-        android:paddingLeft="@dimen/comm_dim_10"
-        android:paddingRight="@dimen/comm_dim_10"
-        android:paddingTop="@dimen/comm_dim_7">
+        android:paddingBottom="@dimen/y20"
+        android:paddingLeft="@dimen/y30"
+        android:paddingRight="@dimen/y20"
+        android:paddingTop="@dimen/y20">
 
 
         <ImageView
-            android:layout_width="@dimen/comm_dim_11"
-            android:layout_height="@dimen/comm_dim_11"
+            android:layout_width="@dimen/x25"
+            android:layout_height="@dimen/x25"
             app:srcCompat="@drawable/ic_pop_icon_del" />
     </LinearLayout>
 
     <EditText
-        android:layout_width="@dimen/comm_dim_232"
-        android:layout_height="@dimen/comm_dim_42"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/x76"
+        android:layout_marginRight="@dimen/x76"
+        android:layout_height="@dimen/y84"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/comm_dim_7"
+        android:layout_marginTop="@dimen/y20"
         android:background="@color/com_bg_gray_eeeeee"
         android:hint="@string/input_your_phone"
-        android:paddingLeft="@dimen/comm_dim_13"
+        android:paddingLeft="@dimen/x29"
         android:textColorHint="@color/com_tv_gray_666666"
         android:textSize="@dimen/comm_tv_14" />
 
     <EditText
-        android:layout_width="@dimen/comm_dim_232"
-        android:layout_height="@dimen/comm_dim_42"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/x76"
+        android:layout_marginRight="@dimen/x76"
+        android:layout_height="@dimen/y84"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/comm_dim_10"
+        android:layout_marginTop="@dimen/y20"
         android:background="@color/com_bg_gray_eeeeee"
         android:hint="@string/input_your_phone"
 
-        android:paddingLeft="@dimen/comm_dim_13"
+        android:paddingLeft="@dimen/x29"
 
         android:textColorHint="@color/com_tv_gray_666666"
         android:textSize="@dimen/comm_tv_14" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/comm_dim_44"
-        android:layout_marginRight="@dimen/comm_dim_44"
+        android:layout_gravity="center_horizontal"
 
         android:gravity="center_vertical">
 
@@ -81,7 +82,7 @@
         <com.aoben.qproj.widget.CustomRadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/comm_dim_32" />
+            android:layout_marginLeft="@dimen/x71" />
 
         <View
             android:layout_width="0dp"
@@ -101,11 +102,14 @@
     <Button
 
         android:id="@+id/dialog_konw_btn"
-        android:layout_width="@dimen/comm_dim_232"
-        android:layout_height="@dimen/comm_dim_40"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/x76"
+        android:layout_marginRight="@dimen/x76"
+        android:layout_height="@dimen/y80"
+
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="@dimen/comm_dim_35"
-        android:layout_marginTop="@dimen/comm_dim_19"
+        android:layout_marginBottom="@dimen/y70"
+        android:layout_marginTop="@dimen/y38"
         android:background="@drawable/selector_btn_bg"
         android:text="@string/insure"
         android:textColor="@color/com_tv_white_ffffff"

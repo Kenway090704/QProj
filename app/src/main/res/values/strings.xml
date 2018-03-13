@@ -10,6 +10,7 @@
     <string name="reedom_product">赎楼产品</string>
     <string name="all_product">全部产品</string>
     <string name="sex">性别</string>
+    <string name="search">搜索</string>
     <string name="man">先生</string>
     <string name="woman">女士</string>
 
@@ -58,6 +59,11 @@
     <string name="plz_wait">请耐心等待,我们的业务人员会稍后联系你。</string>
     <string name="i_want_konw">我要了解</string>
     <string name="insure">确认</string>
+    <string name="wule">吴乐</string>
+    <string name="line_of_business">业务范围:</string>
+    <string name="line_of_business_hint">无抵押信用贷款,抵押贷款</string>
+    <string name="business_introduction">业务介绍:</string>
+    <string name="business_introduction_hint">本人从事多年房地产抵押贷款,有足够抵押及信用贷款经验</string>
 
 
 </resources>

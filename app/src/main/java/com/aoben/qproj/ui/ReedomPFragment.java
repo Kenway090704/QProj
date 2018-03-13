@@ -10,7 +10,7 @@ import com.aoben.qproj.R;
  * 赎楼产品
  */
 
-public class ReedomPFragment  extends BaseFragment{
+public class   ReedomPFragment  extends BaseFragment{
     @Override
     protected int getLayoutId() {
         return R.layout.frag_reedomp;

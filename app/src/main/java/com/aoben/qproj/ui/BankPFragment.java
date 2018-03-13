@@ -29,7 +29,6 @@ public class BankPFragment extends BaseFragment {
     protected void initViews(View root) {
 //        rv = (RecyclerView) root.findViewById(R.id.frag_bankp_rv);
 
-        LogUtils.e("初始化银行产品");
     }
 
     @Override

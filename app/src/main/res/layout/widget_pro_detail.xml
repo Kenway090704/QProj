@@ -17,22 +17,30 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <ImageView
+            <LinearLayout
+                android:layout_width="@dimen/y120"
+                android:layout_height="@dimen/y120"
+                android:layout_marginBottom="@dimen/y28"
+                android:layout_marginLeft="@dimen/x38"
+                android:layout_marginTop="@dimen/y28"
+                android:background="@drawable/shape_iv_bg_stroke"
+                android:gravity="center">
 
-                android:layout_width="@dimen/comm_dim_65"
-                android:layout_height="@dimen/comm_dim_65"
-                android:layout_marginBottom="@dimen/comm_dim_14"
-                android:layout_marginLeft="@dimen/comm_dim_17"
-                android:layout_marginTop="@dimen/comm_dim_14"
-                android:src="@drawable/detail_icon_pic" />
+
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/detail_icon_pic" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/comm_dim_26"
-                android:layout_marginLeft="@dimen/comm_dim_15"
-                android:layout_marginRight="@dimen/comm_dim_17"
-                android:layout_marginTop="@dimen/comm_dim_26"
+                android:layout_marginBottom="@dimen/y52"
+                android:layout_marginLeft="@dimen/x33"
+                android:layout_marginRight="@dimen/x38"
+                android:layout_marginTop="@dimen/y52"
                 android:orientation="vertical">
 
                 <TextView
@@ -47,7 +55,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/comm_dim_12"
+                    android:layout_marginTop="@dimen/y16"
                     android:singleLine="true"
                     android:text="建设银行--云快贷"
                     android:textColor="@color/com_tv_gray_999999"
@@ -57,25 +65,25 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/comm_dim_2"
-            android:layout_marginLeft="@dimen/comm_dim_14"
-            android:layout_marginRight="@dimen/comm_dim_14"
-            android:layerType="software"
-            android:background="@drawable/shape_dotted_line" />
+            android:layout_height="@dimen/y4"
+            android:layout_marginLeft="@dimen/x31"
+            android:layout_marginRight="@dimen/x31"
+            android:background="@drawable/shape_dotted_line"
+            android:layerType="software" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/comm_dim_28"
-            android:paddingRight="@dimen/comm_dim_28">
+            android:paddingLeft="@dimen/x55"
+            android:paddingRight="@dimen/x55">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/comm_dim_20"
-                android:layout_marginTop="@dimen/comm_dim_19"
+                android:layout_marginBottom="@dimen/y40"
+                android:layout_marginTop="@dimen/y40"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -87,9 +95,11 @@
                     android:textSize="@dimen/comm_tv_12" />
 
                 <TextView
+
+                    android:id="@+id/widget_pro_detail_tv_interst"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/comm_dim_10"
+                    android:layout_marginTop="@dimen/y6"
                     android:text="@string/rate_of_interest_6"
                     android:textColor="@color/com_tv_orige_ff9600"
                     android:textSize="@dimen/comm_tv_23" />
@@ -101,9 +111,9 @@
                 android:layout_weight="1" />
 
             <View
-                android:layout_width="@dimen/comm_dim_1"
-                android:layout_height="@dimen/comm_dim_19"
-                android:background="@color/com_bg_gray_eeeeee" />
+                android:layout_width="@dimen/y2"
+                android:layout_height="@dimen/y38"
+                android:background="@color/com_bg_gray_d6d6d6" />
 
             <View
                 android:layout_width="0dp"
@@ -113,8 +123,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/comm_dim_20"
-                android:layout_marginTop="@dimen/comm_dim_20"
+                android:layout_marginBottom="@dimen/y40"
+                android:layout_marginTop="@dimen/y40"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -127,9 +137,10 @@
                     android:textSize="@dimen/comm_tv_12" />
 
                 <TextView
+                    android:id="@+id/widget_pro_detail_tv_limit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/comm_dim_10"
+                    android:layout_marginTop="@dimen/y6"
                     android:text="@string/milion"
                     android:textColor="@color/com_tv_black_333333"
                     android:textSize="@dimen/comm_tv_23" />
@@ -141,9 +152,9 @@
                 android:layout_weight="1" />
 
             <View
-                android:layout_width="@dimen/comm_dim_1"
-                android:layout_height="@dimen/comm_dim_19"
-                android:background="@color/com_bg_gray_eeeeee" />
+                android:layout_width="@dimen/y2"
+                android:layout_height="@dimen/y38"
+                android:background="@color/com_bg_gray_d6d6d6" />
 
             <View
                 android:layout_width="0dp"
@@ -153,8 +164,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/comm_dim_20"
-                android:layout_marginTop="@dimen/comm_dim_20"
+                android:layout_marginBottom="@dimen/y40"
+                android:layout_marginTop="@dimen/y40"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
@@ -166,26 +177,29 @@
                     android:textSize="@dimen/comm_tv_12" />
 
                 <TextView
+                    android:id="@+id/widget_pro_detail_tv_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/comm_dim_10"
                     android:text="@string/year"
+                    android:layout_marginTop="@dimen/y6"
                     android:textColor="@color/com_tv_black_333333"
                     android:textSize="@dimen/comm_tv_23" />
             </LinearLayout>
 
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/comm_dim_2"
-            android:layout_marginLeft="@dimen/comm_dim_14"
-            android:layout_marginRight="@dimen/comm_dim_14"
-            android:layerType="software"
-            android:background="@drawable/shape_dotted_line" />
+            android:layout_height="@dimen/y4"
+            android:layout_marginLeft="@dimen/x31"
+            android:layout_marginRight="@dimen/x31"
+            android:background="@drawable/shape_dotted_line"
+            android:layerType="software" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/comm_dim_10"
+            android:layout_marginTop="@dimen/y20"
             android:gravity="center"
             android:text="@string/pay_style"
             android:textColor="@color/com_tv_black_333333"
@@ -196,97 +210,108 @@
 
             android:id="@+id/widget_pro_detail_btn"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/comm_dim_40"
-            android:layout_marginLeft="@dimen/comm_dim_30"
-            android:layout_marginRight="@dimen/comm_dim_30"
-            android:layout_marginTop="@dimen/comm_dim_19"
+            android:layout_height="@dimen/y80"
+            android:layout_marginLeft="@dimen/x67"
+            android:layout_marginRight="@dimen/x67"
+            android:layout_marginTop="@dimen/y38"
             android:background="@drawable/selector_btn_bg"
             android:text="@string/i_want_konw"
 
             android:textColor="@color/com_tv_white_ffffff"
             android:textSize="@dimen/comm_tv_15" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/comm_dim_7"
-            android:layout_marginTop="@dimen/comm_dim_10"
-            android:background="@color/com_bg_gray_eeeeee" />        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/comm_dim_13"
-            android:text="@string/application_requirement"
-            android:textColor="@color/com_tv_black_333333"
-            android:textSize="@dimen/comm_tv_14"
-            android:id="@+id/textView5" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/comm_dim_1"
+            android:layout_height="@dimen/y14"
+            android:layout_marginTop="@dimen/y20"
+            android:background="@color/com_bg_gray_eeeeee" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x29"
+            android:paddingRight="@dimen/x29"
+            android:text="@string/application_requirement"
+            android:textColor="@color/com_tv_black_333333"
+            android:textSize="@dimen/comm_tv_14" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y2"
             android:background="@color/com_bg_gray_eeeeee" />
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/comm_dim_10"
-            android:paddingLeft="@dimen/comm_dim_13"
-            android:paddingRight="@dimen/comm_dim_13"
-            android:paddingTop="@dimen/comm_dim_10"
+            android:lineSpacingExtra="@dimen/y20"
+            android:paddingBottom="@dimen/y20"
+            android:paddingLeft="@dimen/x29"
+            android:paddingRight="@dimen/x29"
+            android:paddingTop="@dimen/y20"
             android:text="@string/application_requirement_hint"
             android:textColor="@color/com_tv_gray_666666"
             android:textSize="@dimen/comm_tv_12" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/comm_dim_7"
+            android:layout_height="@dimen/y14"
             android:background="@color/com_bg_gray_eeeeee" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/comm_dim_13"
+            android:layout_height="@dimen/y80"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x29"
+            android:paddingRight="@dimen/x29"
             android:text="@string/prepare_data"
             android:textColor="@color/com_tv_black_333333"
             android:textSize="@dimen/comm_tv_14" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/comm_dim_1"
+            android:layout_height="@dimen/y2"
             android:background="@color/com_bg_gray_eeeeee" />
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/comm_dim_10"
-            android:paddingLeft="@dimen/comm_dim_13"
-            android:paddingRight="@dimen/comm_dim_13"
-            android:paddingTop="@dimen/comm_dim_10"
+            android:lineSpacingExtra="@dimen/y20"
+            android:paddingBottom="@dimen/y20"
+            android:paddingLeft="@dimen/x29"
+            android:paddingRight="@dimen/x29"
+            android:paddingTop="@dimen/y20"
             android:text="@string/prepare_data_hint"
             android:textColor="@color/com_tv_gray_666666"
             android:textSize="@dimen/comm_tv_12" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/comm_dim_7"
+            android:layout_height="@dimen/y14"
             android:background="@color/com_bg_gray_eeeeee" />
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/comm_dim_13"
+            android:layout_height="@dimen/y80"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/x29"
+            android:paddingRight="@dimen/x29"
             android:text="@string/operational_process"
             android:textColor="@color/com_tv_black_333333"
-            android:textSize="@dimen/comm_tv_14"
-            android:id="@+id/textView4" />
+            android:textSize="@dimen/comm_tv_14" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/comm_dim_1"
+            android:layout_height="@dimen/y2"
             android:background="@color/com_bg_gray_eeeeee" />
 
         <com.aoben.qproj.widget.FlowItemUI
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </ScrollView>

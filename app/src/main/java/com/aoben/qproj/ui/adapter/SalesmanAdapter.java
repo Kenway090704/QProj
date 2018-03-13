@@ -37,9 +37,9 @@ public class SalesmanAdapter extends RecyclerView.Adapter<SalesmanAdapter.Salesm
     public void onBindViewHolder(SalesmanViewHolder holder, int position) {
 
 
-        if (position == 0) {
-            holder.siu.setLayoutTool(View.VISIBLE, ResourceUtil.resToStr(R.string.saler), null);
-        }
+//        if (position == 0) {
+//            holder.siu.setLayoutTool(View.VISIBLE, ResourceUtil.resToStr(R.string.saler), null);
+//        }
     }
 
     @Override

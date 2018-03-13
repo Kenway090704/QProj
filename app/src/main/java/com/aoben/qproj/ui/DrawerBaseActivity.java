@@ -6,14 +6,17 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.aoben.qproj.R;
 import com.aoben.qproj.util.KeyBoardUtils;
@@ -43,7 +46,7 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
 
     private QprojToolBar qprojToolBar;
 
-    private NavEditText nav_et;
+    public NavEditText nav_et;
 
     private NavItemUI nav_01, nav_02, nav_03;
 
@@ -76,6 +79,17 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
         nav_02 = (NavItemUI) findViewById(R.id.nav_drawer_base_nav_02);
         nav_03 = (NavItemUI) findViewById(R.id.nav_drawer_base_nav_03);
 
+        //点击搜索按钮时显示的内容。
+        nav_et.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+
+                if (actionId== EditorInfo.IME_ACTION_SEARCH){
+
+                }
+                return false;
+            }
+        });
 
         initBaseEvent();
         View view = LayoutInflater.from(this).inflate(getLayoutId(), null);
@@ -105,6 +119,13 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
             }
         });
 
+        qprojToolBar.getBackIv().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         nav_01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,8 +140,8 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
             @Override
             public void onClick(View v) {
                 //进入赎楼产品页
-
                 drawerLayout.closeDrawer(GravityCompat.START);
+                AllProductActivity.actionStart(v.getContext());
             }
         });
 
@@ -176,6 +197,15 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
      * register the listener to the view.
      */
     protected abstract void initListener();
+
+
+    /**
+     * 获取QprojToolBar控件
+     * @return
+     */
+    public  QprojToolBar getToolBar(){
+        return qprojToolBar;
+    }
 
 
     //DrawerLayout的监听事件

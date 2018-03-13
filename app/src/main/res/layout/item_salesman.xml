@@ -4,7 +4,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:background="@color/com_bg_wihte"
     android:orientation="vertical">
 
@@ -13,31 +12,30 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="@color/com_bg_wihte"
         android:orientation="horizontal"
-
-        android:paddingLeft="@dimen/comm_dim_13"
-        android:paddingRight="@dimen/comm_dim_19">
+        android:paddingLeft="@dimen/x29"
+        android:paddingRight="@dimen/x42">
 
         <ImageView
-            android:layout_width="@dimen/comm_dim_100"
-            android:layout_height="@dimen/comm_dim_140"
+            android:layout_width="@dimen/y200"
+            android:layout_height="@dimen/y280"
             android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/y20"
+            android:layout_marginTop="@dimen/y20"
             android:src="@drawable/touxiang" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/comm_dim_10"
-            android:layout_marginLeft="@dimen/comm_dim_13"
-            android:layout_marginTop="@dimen/comm_dim_10"
+           android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x29"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="吴乐"
+                android:text="@string/wule"
                 android:textColor="@color/com_tv_black_333333"
                 android:textSize="@dimen/comm_tv_14"
                 android:textStyle="bold" />
@@ -45,38 +43,39 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/comm_dim_16"
+                android:layout_marginTop="@dimen/y20"
                 android:background="@drawable/shape_salesman_item_bg"
-                android:padding="@dimen/comm_dim_3"
-                android:text="业务范围:"
+                android:padding="@dimen/y6"
+                android:text="@string/line_of_business"
                 android:textColor="@color/com_tv_white_ffffff"
                 android:textSize="@dimen/comm_tv_9" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/comm_dim_7"
+                android:layout_marginTop="@dimen/y14"
 
-                android:text="无抵押信用贷款,抵押贷款"
+                android:text="@string/line_of_business_hint"
                 android:textColor="@color/com_tv_black_333333"
-                android:textSize="@dimen/comm_tv_13" />
+                android:textSize="@dimen/comm_tv_13"
+                android:id="@+id/textView6" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/comm_dim_14"
+                android:layout_marginTop="@dimen/y20"
                 android:background="@drawable/shape_salesman_item_bg"
-                android:padding="@dimen/comm_dim_3"
-                android:text="业务介绍:"
+                android:padding="@dimen/y6"
+                android:text="@string/business_introduction"
                 android:textColor="@color/com_tv_white_ffffff"
                 android:textSize="@dimen/comm_tv_9" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/comm_dim_7"
-                android:lineSpacingExtra="@dimen/comm_dim_8"
-                android:text="本人从事多年房地产抵押贷款,有足够抵押及信用贷款经验"
+                android:layout_marginTop="@dimen/y14"
+                android:lineSpacingExtra="@dimen/y6"
+                android:text="@string/business_introduction_hint"
                 android:textColor="@color/com_tv_black_333333"
                 android:textSize="@dimen/comm_tv_13" />
         </LinearLayout>
@@ -86,7 +85,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/comm_dim_7"
+        android:layout_height="@dimen/y14"
         android:background="@color/com_bg_gray_eeeeee" />
 
 </LinearLayout>

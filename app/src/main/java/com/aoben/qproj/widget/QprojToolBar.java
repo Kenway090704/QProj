@@ -19,6 +19,7 @@ public class QprojToolBar extends LinearLayout {
 
 
     private ImageView iv;
+    private ImageView iv_back;
     private Context mContext;
 
     public QprojToolBar(Context context) {
@@ -45,10 +46,16 @@ public class QprojToolBar extends LinearLayout {
         View view = LayoutInflater.from(mContext).inflate(R.layout.toolbar_qproj, this);
 
         iv = (ImageView) findViewById(R.id.toolbar_iv);
+
+        iv_back = (ImageView) findViewById(R.id.toolbar_iv_back);
     }
 
 
     public ImageView getIv() {
         return iv;
+    }
+
+    public ImageView getBackIv() {
+        return iv_back;
     }
 }

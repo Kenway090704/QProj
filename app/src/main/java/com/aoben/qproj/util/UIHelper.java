@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.widget.CustomDialog;
 
 /**
  * Created by kenway on 18/3/6 11:45
@@ -18,28 +19,36 @@ import com.aoben.qproj.R;
 public class UIHelper {
 
 
+    private static LinearLayout layout_del;
+    private static Button btn;
+    private static Dialog dialog;
+
     /**
      * 弹出提示框
-     *
      * @param context
      */
     public static void showDialog(Context context) {
 
-        final AlertDialog dialog = new AlertDialog.Builder(context).create();
+        dialog = new Dialog(context);
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_konw, null);
+
+        dialog.setContentView(view);
+
+
+        layout_del = (LinearLayout) view.findViewById(R.id.dialog_layout_del);
+
+        btn = (Button) view.findViewById(R.id.dialog_konw_btn);
+
 
         dialog.setCancelable(true);
-//        dialog.setCanceledOnTouchOutside(false);
 
-        View view = LayoutInflater.from(context).inflate(R.layout.dialog_konw, null);
-        dialog.setView(view);
         dialog.show();
 
 
-        LinearLayout layout_del = (LinearLayout) view.findViewById(R.id.dialog_layout_del);
+        initEvent();
+    }
 
-        Button btn = (Button) view.findViewById(R.id.dialog_konw_btn);
-
-
+    private static void initEvent() {
         layout_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +62,36 @@ public class UIHelper {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+            }
+        });
+    }
+
+
+    public static void showKonwDialog(Context context) {
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_konw, null);
+
+        final CustomDialog builder = new CustomDialog(context, 0, 0, view, R.style.dialog);
+        //设置对话框显示的View
+        builder.show();
+
+
+        layout_del = (LinearLayout) builder.findViewById(R.id.dialog_layout_del);
+
+        btn = (Button) builder.findViewById(R.id.dialog_konw_btn);
+
+        layout_del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (builder.isShowing()) {
+                    builder.dismiss();
+                }
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.dismiss();
             }
         });
     }

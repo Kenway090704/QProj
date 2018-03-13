@@ -21,7 +21,9 @@ import com.aoben.qproj.R;
 import com.aoben.qproj.glide.NetworkImageHolderView;
 import com.aoben.qproj.model.BannerBean;
 import com.aoben.qproj.ui.adapter.BaseFragmentPageAdapter;
+import com.aoben.qproj.util.DisplayUtils;
 import com.aoben.qproj.util.LogUtils;
+import com.aoben.qproj.util.ResourceUtil;
 import com.aoben.qproj.util.Util;
 import com.aoben.qproj.widget.CirclePercentBar;
 import com.aoben.qproj.widget.WrapContentHeightViewPager;
@@ -52,9 +54,12 @@ public class MainActivity extends DrawerBaseActivity {
         scrollview = (NestedScrollView) findViewById(R.id.acty_main_scrollview);
         cBanner = (ConvenientBanner) findViewById(R.id.acty_main_cbanner);
         tab = (TabLayout) findViewById(R.id.acty_main_tab);
-        tab.addTab(tab.newTab().setText("银行产品"));
-        tab.addTab(tab.newTab().setText("赎楼产品"));
+        tab.addTab(tab.newTab().setText(ResourceUtil.resToStr(R.string.bank_product)));
+        tab.addTab(tab.newTab().setText(ResourceUtil.resToStr(R.string.reedom_product)));
         vp = (WrapContentHeightViewPager) findViewById(R.id.acty_main_vp);
+        getToolBar().getBackIv().setVisibility(View.GONE);//首页去掉标题中的返回按钮
+
+//        LogUtils.e("屏幕的分辨率:h-->"+ DisplayUtils.getScreenHeightPixels(this)+",w-->"+DisplayUtils.getScreenWidthPixels(this));
 
     }
 

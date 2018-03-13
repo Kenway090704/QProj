@@ -8,11 +8,12 @@
 
 
     <RelativeLayout
-        android:layout_width="@dimen/comm_dim_44"
-        android:layout_height="@dimen/comm_dim_44"
+        android:layout_width="@dimen/y88"
+        android:layout_height="@dimen/y88"
+        android:id="@+id/acty_splash_rl"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/comm_dim_12"
-        android:layout_marginTop="@dimen/comm_dim_28"
+        android:layout_marginRight="@dimen/x27"
+        android:layout_marginTop="@dimen/y56"
         android:background="@drawable/shape_splash_circle">
 
         <TextView
@@ -20,19 +21,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/comm_dim_10"
-            android:layout_marginRight="@dimen/comm_dim_10"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginRight="@dimen/x20"
             android:gravity="center_horizontal"
             android:textColor="@color/com_tv_white_ffffff"
-
             android:textSize="@dimen/comm_tv_10" />
 
 
     </RelativeLayout>
 
     <ImageView
-        android:layout_width="@dimen/comm_dim_125"
-        android:layout_height="@dimen/comm_dim_157"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y314"
         android:layout_centerInParent="true"
         app:srcCompat="@drawable/ic_default_logo" />
 
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/comm_dim_17"
+        android:layout_marginBottom="@dimen/y34"
         android:text="@string/copyright"
         android:textColor="@color/com_tv_white_ffffff"
         android:textSize="@dimen/comm_tv_14" />

@@ -12,7 +12,7 @@ import android.view.View;
 import com.aoben.qproj.R;
 import com.aoben.qproj.ui.adapter.SalesmanAdapter;
 import com.aoben.qproj.ui.adapter.SalesmanDecoration;
-import com.aoben.qproj.widget.QprojToolBar;
+
 
 import java.util.ArrayList;
 import java.util.List;

@@ -141,7 +141,7 @@ public class ProductItemUI extends LinearLayout {
         spannableString.setSpan(colorSpan, index, index + change.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
         //设置大小 0.65   0.394
-        RelativeSizeSpan sizeSpan01 = new RelativeSizeSpan(0.394f);
+        RelativeSizeSpan sizeSpan01 = new RelativeSizeSpan(size);
         spannableString.setSpan(sizeSpan01, index, index + change.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 
 
