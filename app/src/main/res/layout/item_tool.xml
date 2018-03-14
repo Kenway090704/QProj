@@ -28,16 +28,21 @@
                 android:textColor="@color/com_tv_black_333333"
                 android:textSize="@dimen/comm_tv_11" />
 
-            <ImageView
+            <LinearLayout
                 android:id="@+id/item_iv_more"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/x29"
+                android:paddingLeft="@dimen/x29"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:clickable="true"
-                android:paddingLeft="@dimen/x29"
-                android:paddingRight="@dimen/x29"
+                android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="@dimen/y34"
+                android:layout_height="@dimen/y34"
                 app:srcCompat="@drawable/ic_list_icon_more" />
+            </LinearLayout>
         </RelativeLayout>
 
         <View

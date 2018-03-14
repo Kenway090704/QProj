@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/toolbar_iv_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/y38"
+        android:layout_height="@dimen/y38"
         android:layout_centerVertical="true"
         android:clickable="true"
         app:srcCompat="@drawable/ic_nav_icon_return" />
@@ -32,7 +32,6 @@
         android:id="@+id/toolbar_iv"
         android:layout_width="@dimen/x49"
         android:layout_height="@dimen/y42"
-
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:clickable="true"

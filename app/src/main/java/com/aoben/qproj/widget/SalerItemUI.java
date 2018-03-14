@@ -23,7 +23,7 @@ public class SalerItemUI extends LinearLayout {
     private LinearLayout layout_tool;
 
     private TextView tv_tool_name;
-    private ImageView iv_more;
+    private LinearLayout iv_more;
     public SalerItemUI(Context context) {
         super(context);
 
@@ -49,7 +49,7 @@ public class SalerItemUI extends LinearLayout {
 
         View view = LayoutInflater.from(context).inflate(R.layout.item_salesman, this);
         layout_tool = (LinearLayout) view.findViewById(R.id.item_layout_tool);
-        iv_more = (ImageView) view.findViewById(R.id.item_iv_more);
+        iv_more = (LinearLayout) view.findViewById(R.id.item_iv_more);
         tv_tool_name = (TextView) view.findViewById(R.id.item_tv_name);
     }
     public void setLayoutTool(int isVisible, String name, OnClickListener listenerIvMore) {

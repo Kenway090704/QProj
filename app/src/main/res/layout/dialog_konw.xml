@@ -3,37 +3,36 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="@dimen/x667"
+    android:layout_width="wrap_content"
     android:layout_height="@dimen/y560"
     android:background="@color/common_bg_trans"
     >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/x667"
-    android:layout_height="@dimen/y560"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
     android:background="@drawable/shape_dialog_bg"
     android:orientation="vertical">
-
-
     <LinearLayout
         android:id="@+id/dialog_layout_del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:paddingBottom="@dimen/y20"
-        android:paddingLeft="@dimen/y30"
-        android:paddingRight="@dimen/y20"
+        android:paddingLeft="@dimen/x22"
+        android:paddingRight="@dimen/x22"
         android:paddingTop="@dimen/y20">
 
 
         <ImageView
-            android:layout_width="@dimen/x25"
-            android:layout_height="@dimen/x25"
+            android:layout_width="@dimen/y22"
+            android:layout_height="@dimen/y22"
             app:srcCompat="@drawable/ic_pop_icon_del" />
     </LinearLayout>
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/x516"
         android:layout_marginLeft="@dimen/x76"
         android:layout_marginRight="@dimen/x76"
         android:layout_height="@dimen/y84"
@@ -46,7 +45,7 @@
         android:textSize="@dimen/comm_tv_14" />
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/x516"
         android:layout_marginLeft="@dimen/x76"
         android:layout_marginRight="@dimen/x76"
         android:layout_height="@dimen/y84"
@@ -64,7 +63,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-
         android:gravity="center_vertical">
 
         <View
@@ -102,11 +100,10 @@
     <Button
 
         android:id="@+id/dialog_konw_btn"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/x516"
         android:layout_marginLeft="@dimen/x76"
         android:layout_marginRight="@dimen/x76"
         android:layout_height="@dimen/y80"
-
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="@dimen/y70"
         android:layout_marginTop="@dimen/y38"

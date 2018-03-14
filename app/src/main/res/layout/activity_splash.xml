@@ -16,16 +16,33 @@
         android:layout_marginTop="@dimen/y56"
         android:background="@drawable/shape_splash_circle">
 
-        <TextView
-            android:id="@+id/acty_splash_tv_time"
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/x20"
-            android:layout_marginRight="@dimen/x20"
             android:gravity="center_horizontal"
-            android:textColor="@color/com_tv_white_ffffff"
-            android:textSize="@dimen/comm_tv_10" />
+            android:layout_marginRight="@dimen/x20"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:text="@string/jump"
+                android:textColor="@color/com_tv_white_ffffff"
+                android:textSize="@dimen/comm_tv_10" />
+            <TextView
+                android:id="@+id/acty_splash_tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/com_tv_white_ffffff"
+                android:textSize="@dimen/comm_tv_10" />
+
+        </LinearLayout>
+
 
 
     </RelativeLayout>

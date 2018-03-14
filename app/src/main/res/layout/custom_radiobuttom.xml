@@ -8,6 +8,7 @@
 
     <LinearLayout
         android:id="@+id/custom_radiobutton_1"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -16,6 +17,7 @@
         android:paddingTop="@dimen/y26">
 
         <ImageView
+
             android:id="@+id/custom_radiobuttom_iv_1"
             android:layout_width="@dimen/y28"
             android:layout_height="@dimen/y28"
@@ -36,7 +38,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:paddingBottom="@dimen/y26"
-        android:paddingLeft="@dimen/x55"
+        android:paddingLeft="@dimen/x53"
         android:paddingTop="@dimen/y26">
 
         <ImageView

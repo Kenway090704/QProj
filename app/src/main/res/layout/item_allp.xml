@@ -15,7 +15,7 @@
 
         <ImageView
             android:id="@+id/item_allp_iv_logo"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/x289"
             android:layout_height="@dimen/y50"
             android:layout_centerVertical="true"
             android:layout_marginBottom="@dimen/y14"

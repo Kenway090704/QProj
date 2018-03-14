@@ -31,7 +31,7 @@ public class ProductItemUI extends LinearLayout {
     private LinearLayout layout_tool;
 
     private TextView tv_tool_name;
-    private ImageView iv_more;
+    private LinearLayout iv_more;
 
     private ImageView iv_logo;
     private TextView tv_name, tv_rate, tv_limit, tv_year, tv_person_num, tv_time;
@@ -60,7 +60,7 @@ public class ProductItemUI extends LinearLayout {
     private void initViews() {
         View view = LayoutInflater.from(context).inflate(R.layout.item_allp, this);
         layout_tool = (LinearLayout) view.findViewById(R.id.item_layout_tool);
-        iv_more = (ImageView) view.findViewById(R.id.item_iv_more);
+        iv_more = (LinearLayout) view.findViewById(R.id.item_iv_more);
         tv_tool_name = (TextView) view.findViewById(R.id.item_tv_name);
         tv_rate = (TextView) view.findViewById(R.id.item_allp_tv_rate);
         tv_limit = (TextView) view.findViewById(R.id.item_allp_tv_limit);

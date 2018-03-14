@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="comm_tv_9">9sp</dimen>
-    <dimen name="comm_tv_10">10sp</dimen>
-    <dimen name="comm_tv_11">11sp</dimen>
-    <dimen name="comm_tv_12">12sp</dimen>
-    <dimen name="comm_tv_13">13sp</dimen>
-    <dimen name="comm_tv_14">14sp</dimen>
-    <dimen name="comm_tv_15">15sp</dimen>
-    <dimen name="comm_tv_20">20sp</dimen>
-    <dimen name="comm_tv_23">23sp</dimen>
-    <dimen name="comm_tv_30">30sp</dimen>
-    <dimen name="comm_tv_32">32sp</dimen>
-    <dimen name="comm_tv_33">33sp</dimen>
+    <dimen name="comm_tv_9">27px</dimen>
+    <dimen name="comm_tv_10">30px</dimen>
+    <dimen name="comm_tv_11">33px</dimen>
+    <dimen name="comm_tv_12">36px</dimen>
+    <dimen name="comm_tv_13">39px</dimen>
+    <dimen name="comm_tv_14">42px</dimen>
+    <dimen name="comm_tv_15">45px</dimen>
+    <dimen name="comm_tv_20">60px</dimen>
+    <dimen name="comm_tv_23">69px</dimen>
+    <dimen name="comm_tv_30">90px</dimen>
+    <dimen name="comm_tv_32">96px</dimen>
+    <dimen name="comm_tv_33">99px</dimen>
 
 </resources>

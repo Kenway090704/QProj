@@ -23,14 +23,16 @@
                 android:layout_marginBottom="@dimen/y28"
                 android:layout_marginLeft="@dimen/x38"
                 android:layout_marginTop="@dimen/y28"
+                android:padding="@dimen/y20"
                 android:background="@drawable/shape_iv_bg_stroke"
                 android:gravity="center">
 
 
                 <ImageView
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
                     android:src="@drawable/detail_icon_pic" />
             </LinearLayout>
 

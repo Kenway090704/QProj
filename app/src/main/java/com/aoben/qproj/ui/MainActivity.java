@@ -16,6 +16,7 @@ import android.support.v4.widget.NestedScrollView;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.Toast;
 
 import com.aoben.qproj.R;
 import com.aoben.qproj.glide.NetworkImageHolderView;
@@ -60,6 +61,11 @@ public class MainActivity extends DrawerBaseActivity {
         getToolBar().getBackIv().setVisibility(View.GONE);//首页去掉标题中的返回按钮
 
 //        LogUtils.e("屏幕的分辨率:h-->"+ DisplayUtils.getScreenHeightPixels(this)+",w-->"+DisplayUtils.getScreenWidthPixels(this));
+         LogUtils.e("字体大小:9-->" + (int) this.getResources().getDimension(R.dimen.comm_tv_9));
+        //vivo--10-->30  9-->27
+        //p8 ---25
+        //广告机
+        Toast.makeText(this,"屏幕分辨率:h-->"+ DisplayUtils.getScreenHeightPixels(this)+",w-->"+DisplayUtils.getScreenWidthPixels(this)+",字体9-->"+(int) this.getResources().getDimension(R.dimen.comm_tv_9),Toast.LENGTH_SHORT).show();
 
     }
 

@@ -28,7 +28,7 @@ public class SplashActivity extends BaseActivity {
         @Override
         public void handleMessage(Message msg) {
             currentTime--;
-            time.setText("跳转" + currentTime + "s");
+            time.setText( currentTime + "s");
             if (currentTime == 0) {
                 //进入MainActivity
 

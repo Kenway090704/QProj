@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QProj</string>
+    <string name="app_name">钱行金服</string>
     <string name="copyright">©qianghangjinfu.com</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -22,7 +22,6 @@
     <string name="rate_of_interest_6">0.629%</string>
     <string name="product_name">产品名称:云快贷</string>
     <string name="apply">已有365人申请</string>
-
     <string name="money">最快7天放款</string>
     <string name="limit"> 额度</string>
     <string name="milion">1000万</string>
@@ -64,6 +63,7 @@
     <string name="line_of_business_hint">无抵押信用贷款,抵押贷款</string>
     <string name="business_introduction">业务介绍:</string>
     <string name="business_introduction_hint">本人从事多年房地产抵押贷款,有足够抵押及信用贷款经验</string>
+    <string name="jump">跳转</string>
 
 
 </resources>

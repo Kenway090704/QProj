@@ -22,11 +22,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y300" />
 
+
+
             <android.support.design.widget.TabLayout
                 android:id="@+id/acty_main_tab"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/x800"
                 android:layout_height="@dimen/x80"
-                android:layout_alignParentBottom="true"
+                app:tabMode="fixed"
                 app:tabBackground="@drawable/selector_tab_bg"
                 app:tabIndicatorHeight="0dp"
                 app:tabSelectedTextColor="@color/com_tv_white_ffffff"
