@@ -29,6 +29,7 @@ import com.aoben.qproj.util.ResourceUtil;
 import com.aoben.qproj.util.UIHelper;
 import com.aoben.qproj.util.Util;
 import com.aoben.qproj.widget.CirclePercentBar;
+import com.aoben.qproj.widget.CustomTablayout;
 import com.aoben.qproj.widget.WrapContentHeightViewPager;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -41,7 +42,7 @@ public class MainActivity extends DrawerBaseActivity {
 
     private NestedScrollView scrollview;
     private ConvenientBanner cBanner;
-    private TabLayout tab;
+    private CustomTablayout tab;
 
     private WrapContentHeightViewPager vp;
     private BaseFragmentPageAdapter adapter;
@@ -56,44 +57,18 @@ public class MainActivity extends DrawerBaseActivity {
     protected void initView() {
         scrollview = (NestedScrollView) findViewById(R.id.acty_main_scrollview);
         cBanner = (ConvenientBanner) findViewById(R.id.acty_main_cbanner);
-        tab = (TabLayout) findViewById(R.id.acty_main_tab);
+        tab = (CustomTablayout) findViewById(R.id.acty_main_tab);
 
-
-        tab.addTab(tab.newTab().setText(ResourceUtil.resToStr(R.string.bank_product)));
-        tab.addTab(tab.newTab().setText(ResourceUtil.resToStr(R.string.reedom_product)));
-
-
-        tab.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                View tab1=  UIHelper.getTabView(tab,0);
-                View tab2= UIHelper.getTabView(tab,1);
-                ViewGroup.LayoutParams params1=tab1.getLayoutParams();
-                ViewGroup.LayoutParams params2=tab2.getLayoutParams();
-
-                params1.width=DisplayUtils.getScreenWidthPixels(MainActivity.this)/2;//540
-
-                tab1.setLayoutParams(params1);
-                params2.width=DisplayUtils.getScreenWidthPixels(MainActivity.this)/2;
-                tab2.setLayoutParams(params2);
-
-
-                LogUtils.e("tab-->tab.getHeight=="+tab.getHeight()+",tab.getWidth=="+tab.getWidth());
-                String hint= "params1.width="+  params1.width+",tab.getWidth=="+ tab.getWidth()+",tab1.getWidth=="+UIHelper.getTabView(tab,0).getWidth();
-                Toast.makeText(MainActivity.this,hint,Toast.LENGTH_SHORT).show();
-
-            }
-        },3000);
 
         vp = (WrapContentHeightViewPager) findViewById(R.id.acty_main_vp);
         getToolBar().getBackIv().setVisibility(View.GONE);//首页去掉标题中的返回按钮
 
 //        LogUtils.e("屏幕的分辨率:h-->"+ DisplayUtils.getScreenHeightPixels(this)+",w-->"+DisplayUtils.getScreenWidthPixels(this));
-         LogUtils.e("字体大小:9-->" + (int) this.getResources().getDimension(R.dimen.comm_tv_9));
+        LogUtils.e("字体大小:9-->" + (int) this.getResources().getDimension(R.dimen.comm_tv_9));
         //vivo--10-->30  9-->27
         //p8 ---25
         //广告机
-        Toast.makeText(this,"屏幕分辨率:h-->"+ DisplayUtils.getScreenHeightPixels(this)+",w-->"+DisplayUtils.getScreenWidthPixels(this)+",字体9-->"+(int) this.getResources().getDimension(R.dimen.comm_tv_9),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "屏幕分辨率:h-->" + DisplayUtils.getScreenHeightPixels(this) + ",w-->" + DisplayUtils.getScreenWidthPixels(this) + ",字体9-->" + (int) this.getResources().getDimension(R.dimen.comm_tv_9), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -159,22 +134,10 @@ public class MainActivity extends DrawerBaseActivity {
     @Override
     protected void initListener() {
 
-        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tab.setOnTabSelectedListener(new CustomTablayout.OnTabSelectedListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-
-
-                vp.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
+            public void onTabSelected(int selectIndex) {
+                vp.setCurrentItem(selectIndex);
             }
         });
 
@@ -187,11 +150,8 @@ public class MainActivity extends DrawerBaseActivity {
             @Override
             public void onPageSelected(int position) {
 
+                tab.setSelect(position % fragments.size());
 
-                TabLayout.Tab tabLayout = tab.getTabAt(position % fragments.size());
-                if (!Util.isNull(tabLayout)) {
-                    tabLayout.select();
-                }
             }
 
             @Override

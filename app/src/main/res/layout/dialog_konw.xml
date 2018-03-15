@@ -36,6 +36,7 @@
         android:layout_marginLeft="@dimen/x76"
         android:layout_marginRight="@dimen/x76"
         android:layout_height="@dimen/y84"
+        android:singleLine="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/y20"
         android:background="@color/com_bg_gray_eeeeee"
@@ -51,6 +52,8 @@
         android:layout_height="@dimen/y84"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/y20"
+
+        android:singleLine="true"
         android:background="@color/com_bg_gray_eeeeee"
         android:hint="@string/input_your_phone"
 

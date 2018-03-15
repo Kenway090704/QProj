@@ -22,16 +22,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y300" />
 
-            <android.support.design.widget.TabLayout
+            <com.aoben.qproj.widget.CustomTablayout
                 android:id="@+id/acty_main_tab"
-                android:layout_width="@dimen/x800"
-                android:layout_height="@dimen/y80"
-                app:tabMode="fixed"
-                app:tabBackground="@drawable/selector_tab_bg"
-                app:tabIndicatorHeight="0dp"
-                app:tabSelectedTextColor="@color/com_tv_white_ffffff"
-                app:tabTextAppearance="@style/tab_txtSize"
-                app:tabTextColor="@color/com_tv_orige_ff9600" />
+                android:layout_width="match_parent"
+                android:background="@color/com_bg_gray_999999"
+                android:layout_height="@dimen/y80"/>
 
             <com.aoben.qproj.widget.WrapContentHeightViewPager
                 android:id="@+id/acty_main_vp"
