@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Toast;
 
@@ -65,10 +66,22 @@ public class MainActivity extends DrawerBaseActivity {
         tab.postDelayed(new Runnable() {
             @Override
             public void run() {
+                View tab1=  UIHelper.getTabView(tab,0);
+                View tab2= UIHelper.getTabView(tab,1);
+                ViewGroup.LayoutParams params1=tab1.getLayoutParams();
+                ViewGroup.LayoutParams params2=tab2.getLayoutParams();
+
+                params1.width=DisplayUtils.getScreenWidthPixels(MainActivity.this)/2;//540
+
+                tab1.setLayoutParams(params1);
+                params2.width=DisplayUtils.getScreenWidthPixels(MainActivity.this)/2;
+                tab2.setLayoutParams(params2);
+
+
                 LogUtils.e("tab-->tab.getHeight=="+tab.getHeight()+",tab.getWidth=="+tab.getWidth());
-                String hint="tab1-->tab1.getHeight=="+ UIHelper.getTabView(tab,0).getHeight()+",tab1.getWidth=="+UIHelper.getTabView(tab,0).getWidth();
+                String hint= "params1.width="+  params1.width+",tab.getWidth=="+ tab.getWidth()+",tab1.getWidth=="+UIHelper.getTabView(tab,0).getWidth();
                 Toast.makeText(MainActivity.this,hint,Toast.LENGTH_SHORT).show();
-                LogUtils.e("tab1-->tab1.getHeight=="+ UIHelper.getTabView(tab,0).getHeight()+",tab1.getWidth=="+UIHelper.getTabView(tab,0).getWidth());
+
             }
         },3000);
 

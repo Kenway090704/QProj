@@ -39,7 +39,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/y20"
         android:background="@color/com_bg_gray_eeeeee"
-        android:hint="@string/input_your_phone"
+        android:hint="@string/input_your_name"
         android:paddingLeft="@dimen/x29"
         android:textColorHint="@color/com_tv_gray_666666"
         android:textSize="@dimen/comm_tv_14" />
