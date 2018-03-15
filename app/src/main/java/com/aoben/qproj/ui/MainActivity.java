@@ -25,6 +25,7 @@ import com.aoben.qproj.ui.adapter.BaseFragmentPageAdapter;
 import com.aoben.qproj.util.DisplayUtils;
 import com.aoben.qproj.util.LogUtils;
 import com.aoben.qproj.util.ResourceUtil;
+import com.aoben.qproj.util.UIHelper;
 import com.aoben.qproj.util.Util;
 import com.aoben.qproj.widget.CirclePercentBar;
 import com.aoben.qproj.widget.WrapContentHeightViewPager;
@@ -55,8 +56,22 @@ public class MainActivity extends DrawerBaseActivity {
         scrollview = (NestedScrollView) findViewById(R.id.acty_main_scrollview);
         cBanner = (ConvenientBanner) findViewById(R.id.acty_main_cbanner);
         tab = (TabLayout) findViewById(R.id.acty_main_tab);
+
+
         tab.addTab(tab.newTab().setText(ResourceUtil.resToStr(R.string.bank_product)));
         tab.addTab(tab.newTab().setText(ResourceUtil.resToStr(R.string.reedom_product)));
+
+
+        tab.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                LogUtils.e("tab-->tab.getHeight=="+tab.getHeight()+",tab.getWidth=="+tab.getWidth());
+                String hint="tab1-->tab1.getHeight=="+ UIHelper.getTabView(tab,0).getHeight()+",tab1.getWidth=="+UIHelper.getTabView(tab,0).getWidth();
+                Toast.makeText(MainActivity.this,hint,Toast.LENGTH_SHORT).show();
+                LogUtils.e("tab1-->tab1.getHeight=="+ UIHelper.getTabView(tab,0).getHeight()+",tab1.getWidth=="+UIHelper.getTabView(tab,0).getWidth());
+            }
+        },3000);
+
         vp = (WrapContentHeightViewPager) findViewById(R.id.acty_main_vp);
         getToolBar().getBackIv().setVisibility(View.GONE);//首页去掉标题中的返回按钮
 

@@ -3,6 +3,7 @@ package com.aoben.qproj.util;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.support.design.widget.TabLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,8 @@ import android.widget.LinearLayout;
 
 import com.aoben.qproj.R;
 import com.aoben.qproj.widget.CustomDialog;
+
+import java.lang.reflect.Field;
 
 /**
  * Created by kenway on 18/3/6 11:45
@@ -94,6 +97,25 @@ public class UIHelper {
                 builder.dismiss();
             }
         });
+    }
+
+
+    public static View getTabView(TabLayout tabLayout,int index){
+        View tabView = null;
+        TabLayout.Tab tab = tabLayout.getTabAt(index);
+        Field view = null;
+        try {
+            view = TabLayout.Tab.class.getDeclaredField("mView");
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        view.setAccessible(true);
+        try {
+            tabView = (View) view.get(tab);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return tabView;
     }
 
 }
