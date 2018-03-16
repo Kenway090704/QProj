@@ -29,14 +29,6 @@ public class CustomDialog extends Dialog {
     public CustomDialog(Context context, int default_width, int default_height, View layout, int themeResId) {
         super(context, themeResId);
 
-//        setContentView(layout);
-//        Window window = getWindow();
-//        WindowManager.LayoutParams params = window.getAttributes();
-//        params.gravity = Gravity.CENTER;
-//        window.setAttributes(params);
-
-        //
-
         setContentView(layout);
         Window window = getWindow();
         WindowManager.LayoutParams params = window.getAttributes();

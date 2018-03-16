@@ -26,48 +26,6 @@ public class UIHelper {
     private static Button btn;
     private static Dialog dialog;
 
-    /**
-     * 弹出提示框
-     * @param context
-     */
-    public static void showDialog(Context context) {
-
-        dialog = new Dialog(context);
-        View view = LayoutInflater.from(context).inflate(R.layout.dialog_konw, null);
-
-        dialog.setContentView(view);
-
-
-        layout_del = (LinearLayout) view.findViewById(R.id.dialog_layout_del);
-
-        btn = (Button) view.findViewById(R.id.dialog_konw_btn);
-
-
-        dialog.setCancelable(true);
-
-        dialog.show();
-
-
-        initEvent();
-    }
-
-    private static void initEvent() {
-        layout_del.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (dialog.isShowing()) {
-                    dialog.dismiss();
-                }
-            }
-        });
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-    }
 
 
     public static void showKonwDialog(Context context) {
@@ -100,22 +58,6 @@ public class UIHelper {
     }
 
 
-    public static View getTabView(TabLayout tabLayout,int index){
-        View tabView = null;
-        TabLayout.Tab tab = tabLayout.getTabAt(index);
-        Field view = null;
-        try {
-            view = TabLayout.Tab.class.getDeclaredField("mView");
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        }
-        view.setAccessible(true);
-        try {
-            tabView = (View) view.get(tab);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return tabView;
-    }
+
 
 }

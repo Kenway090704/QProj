@@ -18,4 +18,14 @@
         <attr name="nav_name" format="string|reference"/>
     </declare-styleable>
 
+
+    <declare-styleable name="IndictorView">
+        <attr name="indicator_count" format="integer|reference"/>
+        <attr name="indicator_s_resid" format="reference"/>
+        <attr name="indicator_n_resid" format="reference"/>
+        <attr name="indicator_width" format="dimension|reference"/>
+        <attr name="indicator_height" format="dimension|reference"/>
+        <attr name="indicator_margin_left" format="dimension|reference"/>
+    </declare-styleable>
+
 </resources>

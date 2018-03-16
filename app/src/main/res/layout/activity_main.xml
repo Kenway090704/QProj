@@ -17,16 +17,33 @@
             android:descendantFocusability="blocksDescendants"
             android:orientation="vertical">
 
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y300">
             <com.bigkoo.convenientbanner.ConvenientBanner
                 android:id="@+id/acty_main_cbanner"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y300" />
+                android:layout_height="match_parent" />
 
+            <com.aoben.qproj.widget.IndictorView
+                android:id="@+id/acty_main_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                app:indicator_height="@dimen/y14"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/y20"
+                app:indicator_margin_left="@dimen/x7"
+                app:indicator_n_resid="@drawable/ic_indicator_circle_n"
+                app:indicator_s_resid="@drawable/ic_indicator_circle_s"
+                app:indicator_width="@dimen/y14" />
+            </RelativeLayout>
             <com.aoben.qproj.widget.CustomTablayout
                 android:id="@+id/acty_main_tab"
                 android:layout_width="match_parent"
-                android:background="@color/com_bg_gray_999999"
-                android:layout_height="@dimen/y80"/>
+                android:layout_height="@dimen/y80"
+                android:background="@color/com_bg_gray_999999" />
 
             <com.aoben.qproj.widget.WrapContentHeightViewPager
                 android:id="@+id/acty_main_vp"

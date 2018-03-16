@@ -30,6 +30,7 @@ import com.aoben.qproj.util.UIHelper;
 import com.aoben.qproj.util.Util;
 import com.aoben.qproj.widget.CirclePercentBar;
 import com.aoben.qproj.widget.CustomTablayout;
+import com.aoben.qproj.widget.IndictorView;
 import com.aoben.qproj.widget.WrapContentHeightViewPager;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
@@ -42,6 +43,7 @@ public class MainActivity extends DrawerBaseActivity {
 
     private NestedScrollView scrollview;
     private ConvenientBanner cBanner;
+    private IndictorView indictorView;
     private CustomTablayout tab;
 
     private WrapContentHeightViewPager vp;
@@ -57,6 +59,7 @@ public class MainActivity extends DrawerBaseActivity {
     protected void initView() {
         scrollview = (NestedScrollView) findViewById(R.id.acty_main_scrollview);
         cBanner = (ConvenientBanner) findViewById(R.id.acty_main_cbanner);
+        indictorView = (IndictorView) findViewById(R.id.acty_main_indicator);
         tab = (CustomTablayout) findViewById(R.id.acty_main_tab);
 
 
@@ -68,7 +71,7 @@ public class MainActivity extends DrawerBaseActivity {
         //vivo--10-->30  9-->27
         //p8 ---25
         //广告机
-        Toast.makeText(this, "屏幕分辨率:h-->" + DisplayUtils.getScreenHeightPixels(this) + ",w-->" + DisplayUtils.getScreenWidthPixels(this) + ",字体9-->" + (int) this.getResources().getDimension(R.dimen.comm_tv_9), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "屏幕分辨率:h-->" + DisplayUtils.getScreenHeightPixels(this) + ",w-->" + DisplayUtils.getScreenWidthPixels(this) + ",字体9-->" + (int) this.getResources().getDimension(R.dimen.comm_tv_9), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -81,20 +84,19 @@ public class MainActivity extends DrawerBaseActivity {
 
     private void initCBanner() {
 
-        List<BannerBean> banners = new ArrayList<>();
+        final List<BannerBean> banners = new ArrayList<>();
         banners.add(new BannerBean());
         banners.add(new BannerBean());
         banners.add(new BannerBean());
         banners.add(new BannerBean());
+        indictorView.setIndicatorsSize(banners.size());
         cBanner.setPages(new CBViewHolderCreator<NetworkImageHolderView>() {
             @Override
             public NetworkImageHolderView createHolder() {
                 return new NetworkImageHolderView();
             }
         }, banners)
-                .setPointViewVisible(true)//设置指示器是否可见
-                .setPageIndicator(new int[]{R.drawable.ic_indicator_circle_n, R.drawable.ic_indicator_circle_s})
-                .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.CENTER_HORIZONTAL)
+                .setPointViewVisible(false)//设置指示器是否可见
                 .setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
@@ -110,9 +112,27 @@ public class MainActivity extends DrawerBaseActivity {
 //                            intent.setData(content_url);
 //                            holder.getItemView().getContext().startActivity(intent);
 //                        }
-
                     }
-                });//设置指示器的方向（左、中、右）
+                }).setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                LogUtils.e("onPageSelected==" + position);
+                //在这里面设置选中的Indicator
+
+                indictorView.setSelectIndex(position%banners.size());
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });//设置指示器的方向（左、中、右）
         if (!cBanner.isTurning()) {
             cBanner.startTurning(2000);
         }
