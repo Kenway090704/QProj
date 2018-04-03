@@ -21,9 +21,9 @@ public class CustomRadioButton extends LinearLayout {
     private LinearLayout layout_01, layout_02;
     private ImageView iv_01, iv_02;
 
-    int currentIndex = 0;
+    int currentIndex = 1;
 
-    int changeIndex=0;
+    int changeIndex=1;
 
     public CustomRadioButton(Context context) {
         super(context);
@@ -60,12 +60,11 @@ public class CustomRadioButton extends LinearLayout {
         layout_01.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeIndex=0;
-                if (currentIndex == 1) {
+                changeIndex=1;
+                if (currentIndex == 2) {
                     iv_01.setImageResource(R.drawable.ic_pop_checkbox_s);
                     iv_02.setImageResource(R.drawable.ic_pop_checkbox_n);
                 }
-
                 currentIndex=changeIndex;
             }
         });
@@ -74,8 +73,8 @@ public class CustomRadioButton extends LinearLayout {
         layout_02.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeIndex=1;
-                if (currentIndex == 0) {
+                changeIndex=2;
+                if (currentIndex == 1) {
                     iv_01.setImageResource(R.drawable.ic_pop_checkbox_n);
                     iv_02.setImageResource(R.drawable.ic_pop_checkbox_s);
                 }
@@ -87,7 +86,7 @@ public class CustomRadioButton extends LinearLayout {
     }
 
 
-    private int getCurrentIndex() {
+    public int getCurrentIndex() {
         return currentIndex;
     }
 }

@@ -56,4 +56,9 @@ public class NavEditText extends LinearLayout {
     public TextView getTextViewSearch() {
         return tv_search;
     }
+
+
+    public  String    getEditTextStr(){
+        return  et.getText().toString();
+    }
 }

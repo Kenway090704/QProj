@@ -18,8 +18,11 @@
         android:paddingRight="@dimen/x42">
 
         <ImageView
+
+            android:id="@+id/item_salerman_iv"
             android:layout_width="@dimen/y200"
             android:layout_height="@dimen/y280"
+            android:scaleType="centerCrop"
             android:layout_gravity="center_vertical"
             android:layout_marginBottom="@dimen/y20"
             android:layout_marginTop="@dimen/y20"
@@ -33,6 +36,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/item_salerman_tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/wule"
@@ -51,6 +55,7 @@
                 android:textSize="@dimen/comm_tv_9" />
 
             <TextView
+                android:id="@+id/item_salerman_tv_des"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/y14"
@@ -58,7 +63,7 @@
                 android:text="@string/line_of_business_hint"
                 android:textColor="@color/com_tv_black_333333"
                 android:textSize="@dimen/comm_tv_13"
-                android:id="@+id/textView6" />
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,6 +76,7 @@
                 android:textSize="@dimen/comm_tv_9" />
 
             <TextView
+                android:id="@+id/item_salerman_tv_introduce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/y14"

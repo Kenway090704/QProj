@@ -19,7 +19,7 @@ public class QprojToolBar extends LinearLayout {
 
 
     private ImageView iv;
-    private ImageView iv_back;
+    private LinearLayout layout_back;
     private Context mContext;
 
     public QprojToolBar(Context context) {
@@ -47,7 +47,7 @@ public class QprojToolBar extends LinearLayout {
 
         iv = (ImageView) findViewById(R.id.toolbar_iv);
 
-        iv_back = (ImageView) findViewById(R.id.toolbar_iv_back);
+        layout_back = (LinearLayout) findViewById(R.id.toolbar_iv_back);
     }
 
 
@@ -55,7 +55,7 @@ public class QprojToolBar extends LinearLayout {
         return iv;
     }
 
-    public ImageView getBackIv() {
-        return iv_back;
+    public LinearLayout getBackIv() {
+        return layout_back;
     }
 }

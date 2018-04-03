@@ -10,10 +10,14 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.glide.ImageLoader;
+import com.aoben.qproj.model.ProductData;
+import com.aoben.qproj.model.ProductDetailBean;
 import com.aoben.qproj.util.UIHelper;
 
 /**
@@ -26,7 +30,8 @@ public class ProductDetailItem extends LinearLayout {
 
     private Context context;
 
-    private TextView tv_interest, tv_limit, tv_year;
+    private ImageView iv;
+    private TextView tv_name, tv_advantage, tv_interest, tv_limit, tv_year, tv_alsostyle, tv_condition, tv_material;
 
 
     private Button btn;
@@ -53,28 +58,42 @@ public class ProductDetailItem extends LinearLayout {
     private void initViews() {
 
         View view = LayoutInflater.from(context).inflate(R.layout.widget_pro_detail, this);
+
+        iv = (ImageView) view.findViewById(R.id.widget_pro_detail_iv);
+        tv_name = (TextView) view.findViewById(R.id.widget_pro_detail_tv_name);
+        tv_advantage = (TextView) view.findViewById(R.id.widget_pro_detail_tv_advantage);
+
         tv_interest = (TextView) findViewById(R.id.widget_pro_detail_tv_interst);
         tv_limit = (TextView) findViewById(R.id.widget_pro_detail_tv_limit);
         tv_year = (TextView) findViewById(R.id.widget_pro_detail_tv_year);
+        tv_alsostyle = (TextView) view.findViewById(R.id.widget_pro_detail_tv_alsostyle);
+
         btn = (Button) view.findViewById(R.id.widget_pro_detail_btn);
+        tv_condition = (TextView) view.findViewById(R.id.widget_pro_detail_tv_condition);
+        tv_material = (TextView) view.findViewById(R.id.widget_pro_detail_tv_material);
 
 
+    }
+
+    public void setData(final ProductData.BankProductBean bean) {
+
+        ImageLoader.load(context, bean.getLogo(), iv);
+        tv_name.setText(bean.getTitle());
+        tv_advantage.setText(bean.getAdvantage());
+        setTextColor(tv_interest, bean.getMonthrate() + "%", "%", 0.435f);
+
+        int quota = Integer.parseInt(bean.getQuota());
+        setTextColor(tv_limit, quota / 1000 + "万", "万", 0.435f);
+        setTextColor(tv_year, bean.getAgelimit() + "年", "年", 0.435f);
+        tv_alsostyle.setText(bean.getAlsostyle());
         btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-//                UIHelper.showDialog(context);
-
-                UIHelper.showKonwDialog(context);
+                UIHelper.showKonwDialog(context, bean.getId());
             }
         });
-
-        setData();
-    }
-
-    public void setData() {
-        setTextColor(tv_interest, "0.629%", "%", 0.435f);
-        setTextColor(tv_limit, "1000万", "万", 0.435f);
-        setTextColor(tv_year, "3年", "年", 0.435f);
+        tv_condition.setText(bean.getCondition());
+        tv_material.setText(bean.getMaterial());
     }
 
 

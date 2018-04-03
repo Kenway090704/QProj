@@ -4,11 +4,10 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.aoben.qproj.R;
-import com.aoben.qproj.model.BannerBean;
+import com.aoben.qproj.model.BannerData;
 import com.bigkoo.convenientbanner.holder.Holder;
 
-public  class NetworkImageHolderView implements Holder<BannerBean> {
+public  class NetworkImageHolderView implements Holder<BannerData.StartBean> {
         private ImageView imageView;
 
         @Override
@@ -19,7 +18,8 @@ public  class NetworkImageHolderView implements Holder<BannerBean> {
         }
 
         @Override
-        public void UpdateUI(Context context, int position, BannerBean data) {
-            ImageLoader.load(context, R.drawable.banner, imageView);
+        public void UpdateUI(Context context, int position, BannerData.StartBean data) {
+//            ImageLoader.load(context, R.drawable.banner, imageView);
+            ImageLoader.load(context, data.getImgsrc(), imageView);
         }
     }

@@ -144,7 +144,6 @@ public class KeyBoardUtils {
 
     /**
      * 将键盘的高度存储在sharedPreference
-     *
      * @param context
      * @param keyBoardHeight
      */
@@ -155,7 +154,6 @@ public class KeyBoardUtils {
 
     /***
      * 如果本地没有存储,默认是787
-     *
      * @param context
      * @return
      */

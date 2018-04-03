@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
+import com.aoben.qproj.net.QpAddress;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +26,8 @@ public class QProjApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
+
+        QpAddress.setDebug(true);
         setIns();
     }
 

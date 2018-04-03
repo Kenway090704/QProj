@@ -7,9 +7,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.ProductData;
 import com.aoben.qproj.ui.AllProductActivity;
 import com.aoben.qproj.ui.ProductDetailActivity;
+import com.aoben.qproj.util.LogUtils;
 import com.aoben.qproj.util.ResourceUtil;
+
+import java.util.List;
 
 /**
  * Created by kenway on 18/3/5 13:57
@@ -58,10 +62,22 @@ public class ProductRecomentUI extends LinearLayout {
             }
         });
 
+
+    }
+
+
+    public void setData(final List<ProductData.BankProductBean> list) {
+
+
+        pui_01.setData(list.get(0));
+        pui_02.setData(list.get(1));
+        pui_03.setData(list.get(2));
+
+
         pui_01.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProductDetailActivity.actionStart(context);
+                ProductDetailActivity.actionStart(context,list.get(0));
             }
         });
 
@@ -69,7 +85,7 @@ public class ProductRecomentUI extends LinearLayout {
         pui_02.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProductDetailActivity.actionStart(context);
+                ProductDetailActivity.actionStart(context,list.get(1));
             }
         });
 
@@ -77,7 +93,7 @@ public class ProductRecomentUI extends LinearLayout {
         pui_03.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProductDetailActivity.actionStart(context);
+                ProductDetailActivity.actionStart(context,list.get(2));
             }
         });
     }

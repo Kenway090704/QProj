@@ -4,9 +4,12 @@
     android:layout_height="match_parent">
 
     <com.aoben.qproj.widget.ProductRecomentUI
+
+        android:id="@+id/frag_reedomp_prui"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <com.aoben.qproj.widget.SalerRecomendUI
+        android:id="@+id/frag_reedomp_srui"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </LinearLayout>

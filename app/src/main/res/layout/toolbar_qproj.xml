@@ -5,19 +5,25 @@
     android:layout_height="@dimen/y88"
     android:background="@color/com_bg_orige_ff9600"
     android:orientation="horizontal"
-    android:paddingBottom="@dimen/y18"
-    android:paddingLeft="@dimen/x29"
     android:paddingRight="@dimen/x29"
-    android:paddingTop="@dimen/y18"
     android:weightSum="1">
 
-    <ImageView
+
+    <LinearLayout
         android:id="@+id/toolbar_iv_back"
-        android:layout_width="@dimen/y38"
-        android:layout_height="@dimen/y38"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:clickable="true"
-        app:srcCompat="@drawable/ic_nav_icon_return" />
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/x29"
+        android:paddingLeft="@dimen/x29">
+
+        <ImageView
+            android:layout_width="@dimen/y38"
+            android:layout_height="@dimen/y38"
+            app:srcCompat="@drawable/ic_nav_icon_return" />
+
+    </LinearLayout>
 
 
     <ImageView
@@ -28,12 +34,11 @@
 
 
     <ImageView
-
         android:id="@+id/toolbar_iv"
         android:layout_width="@dimen/x49"
         android:layout_height="@dimen/y42"
-        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:clickable="true"
         app:srcCompat="@drawable/ic_nav_icon_menu" />
 

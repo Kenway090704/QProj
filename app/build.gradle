@@ -33,4 +33,30 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.makeramen:roundedimageview:2.2.1'
     compile files('libs/autolayout.jar')
+
+    compile 'com.jimi_wu:PTLRecyclerView:1.1.1'
+
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    //转换为Response   Gson
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    //转换为Response   String
+    compile 'com.squareup.retrofit2:converter-scalars:2.0.0'
+
+
+    //======rxJav需要的引用========
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.0.9'
+    //添加.addCallAdapterFactory(RxJava2CallAdapterFactory)
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+
+    //实现View  弹性效果
+
+    compile 'me.everything:overscroll-decor-android:1.0.4'
+
+    compile  'com.takwolf.android:hf-recyclerview:0.1.1'
+
+
+
+
 }

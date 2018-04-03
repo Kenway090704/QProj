@@ -1,18 +1,16 @@
 package com.aoben.qproj.ui.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.aoben.qproj.R;
-import com.aoben.qproj.model.ProductBean;
+import com.aoben.qproj.model.ProductData;
 import com.aoben.qproj.ui.ProductDetailActivity;
-import com.aoben.qproj.util.LogUtils;
-import com.aoben.qproj.util.ResourceUtil;
 import com.aoben.qproj.util.Util;
-import com.aoben.qproj.widget.ProductDetailItem;
 import com.aoben.qproj.widget.ProductItemUI;
 
 import java.util.List;
@@ -27,11 +25,18 @@ import java.util.List;
 public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.MyViewHolder> {
 
     private Context context;
-    private List<ProductBean> listData;
+    private List<ProductData.BankProductBean> listData;
 
-    public AllProductAdapter(Context context, List<ProductBean> listData) {
+    public AllProductAdapter(Context context, List<ProductData.BankProductBean> listData) {
         this.context = context;
         this.listData = listData;
+    }
+
+
+    public void addReplyListAndNotify(@NonNull List<ProductData.BankProductBean> replyList) {
+        this.listData.addAll(replyList);
+        notifyDataSetChanged();
+//        notifyItemRangeInserted(replys.size() - replyList.size(), replyList.size());
     }
 
     @Override
@@ -40,16 +45,15 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
 
-//        if (position == 0) {
-//            holder.productItemUI.setLayoutTool(View.GONE, ResourceUtil.resToStr(R.string.all_product), null);
-//        }
+
+        holder.productItemUI.setData(listData.get(position));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProductDetailActivity.actionStart(v.getContext());
+                ProductDetailActivity.actionStart(v.getContext(), listData.get(position));
             }
         });
 
@@ -57,7 +61,6 @@ public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.My
 
     @Override
     public int getItemCount() {
-int size=Util.isNull(listData) ? 0 : listData.size();
 
         return Util.isNull(listData) ? 0 : listData.size();
     }

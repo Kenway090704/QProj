@@ -1,34 +1,25 @@
 package com.aoben.qproj.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Handler;
-import android.os.Message;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.NestedScrollView;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.Toast;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.glide.ImageLoader;
 import com.aoben.qproj.glide.NetworkImageHolderView;
-import com.aoben.qproj.model.BannerBean;
+import com.aoben.qproj.model.BannerData;
+import com.aoben.qproj.model.BaseData;
+import com.aoben.qproj.model.SearchData;
+import com.aoben.qproj.net.BaseObServer;
+import com.aoben.qproj.net.QpPostMap;
+import com.aoben.qproj.net.QpRetrofitManager;
 import com.aoben.qproj.ui.adapter.BaseFragmentPageAdapter;
-import com.aoben.qproj.util.DisplayUtils;
+import com.aoben.qproj.util.DataUtil;
 import com.aoben.qproj.util.LogUtils;
-import com.aoben.qproj.util.ResourceUtil;
-import com.aoben.qproj.util.UIHelper;
 import com.aoben.qproj.util.Util;
-import com.aoben.qproj.widget.CirclePercentBar;
 import com.aoben.qproj.widget.CustomTablayout;
 import com.aoben.qproj.widget.IndictorView;
 import com.aoben.qproj.widget.WrapContentHeightViewPager;
@@ -36,8 +27,17 @@ import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends DrawerBaseActivity {
 
@@ -68,10 +68,6 @@ public class MainActivity extends DrawerBaseActivity {
 
 //        LogUtils.e("屏幕的分辨率:h-->"+ DisplayUtils.getScreenHeightPixels(this)+",w-->"+DisplayUtils.getScreenWidthPixels(this));
         LogUtils.e("字体大小:9-->" + (int) this.getResources().getDimension(R.dimen.comm_tv_9));
-        //vivo--10-->30  9-->27
-        //p8 ---25
-        //广告机
-//        Toast.makeText(this, "屏幕分辨率:h-->" + DisplayUtils.getScreenHeightPixels(this) + ",w-->" + DisplayUtils.getScreenWidthPixels(this) + ",字体9-->" + (int) this.getResources().getDimension(R.dimen.comm_tv_9), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -80,16 +76,84 @@ public class MainActivity extends DrawerBaseActivity {
         initCBanner();
         initFragments();
 
+        testNet();
+
+
+
+
+
+    }
+
+    private void testNet() {
+
+
+        QpPostMap qpPostMap = new QpPostMap.Builder()
+                .build();
+        //
+        //        QpRetrofitManager.getInstance().getBanners(qpPostMap.getMap(), new NetCallBack<BaseData<List<BannerBean>>>() {
+        //            @Override
+        //            public void onResponse(Call<BaseData<List<BannerBean>>> call, Response<BaseData<List<BannerBean>>> response) {
+        //                LogUtils.e("onResponse==" + response.body().toString());
+        //            }
+        //        });
+        //
+        //        QpRetrofitManager.getInstance().getBanners(qpPostMap.getMap(), new Callback<BaseData<List<BannerBean>>>() {
+        //            @Override
+        //            public void onResponse(Call<BaseData<List<BannerBean>>> call, Response<BaseData<List<BannerBean>>> response) {
+        //                LogUtils.e("onResponse==" + response.body().toString());
+        //
+        //            }
+        //
+        //            @Override
+        //            public void onFailure(Call<BaseData<List<BannerBean>>> call, Throwable t) {
+        //
+        //            }
+        //        });
+        //
+        //        QpRetrofitManager.getInstance().getBannersRx(qpPostMap.getMap()).subscribe(new BaseObServer<List<BannerBean>>() {
+        //            @Override
+        //            public void onHandleSuccess(List<BannerBean> o) {
+        //                LogUtils.e("onHandleSuccess==" + o.toString());
+        //            }
+        //        });
+
     }
 
     private void initCBanner() {
 
-        final List<BannerBean> banners = new ArrayList<>();
-        banners.add(new BannerBean());
-        banners.add(new BannerBean());
-        banners.add(new BannerBean());
-        banners.add(new BannerBean());
+        QpRetrofitManager.getInstance().getBannersRx().subscribe(new BaseObServer<BannerData>() {
+
+            @Override
+            public void onHandleSuccess(BannerData bannerData) {
+
+                if (Util.isNull(bannerData) || Util.isNull(bannerData.getIndex()) || bannerData.getIndex().size() == 0) {
+
+                    //判断返回的数据是否为空
+
+                } else {
+
+                    LogUtils.e("banner==" + bannerData.toString());
+
+                    List<BannerData.StartBean> banners = bannerData.getIndex();
+                    addBannerData(banners);
+                }
+            }
+        });
+
+
+
+
+    }
+
+    private void addBannerData(final List<BannerData.StartBean> banners) {
+
         indictorView.setIndicatorsSize(banners.size());
+
+        boolean isOnlyOne = banners.size() < 2;
+
+        if (isOnlyOne) {
+            indictorView.setVisibility(View.GONE);
+        }
         cBanner.setPages(new CBViewHolderCreator<NetworkImageHolderView>() {
             @Override
             public NetworkImageHolderView createHolder() {
@@ -121,10 +185,10 @@ public class MainActivity extends DrawerBaseActivity {
 
             @Override
             public void onPageSelected(int position) {
-                LogUtils.e("onPageSelected==" + position);
+
                 //在这里面设置选中的Indicator
 
-                indictorView.setSelectIndex(position%banners.size());
+                indictorView.setSelectIndex(position % banners.size());
 
             }
 
@@ -134,9 +198,14 @@ public class MainActivity extends DrawerBaseActivity {
             }
         });//设置指示器的方向（左、中、右）
         if (!cBanner.isTurning()) {
-            cBanner.startTurning(2000);
-        }
 
+            if (isOnlyOne) {
+                cBanner.stopTurning();
+            } else {
+                cBanner.startTurning(2000);
+            }
+
+        }
     }
 
     private void initFragments() {

@@ -8,8 +8,11 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.SalerBean;
 import com.aoben.qproj.ui.SalesmanActivity;
 import com.aoben.qproj.util.ResourceUtil;
+
+import java.util.List;
 
 /**
  * Created by kenway on 18/3/5 13:57
@@ -57,6 +60,14 @@ public class SalerRecomendUI extends LinearLayout {
             }
         });
 
+
+    }
+
+    public  void setData(List<SalerBean> list){
+
+        siu01.setData(list.get(0));
+        siu02.setData(list.get(1));
+        siu03.setData(list.get(2));
 
     }
 }

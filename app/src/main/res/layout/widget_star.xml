@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/item_allp_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <ImageView
+
+            android:id="@+id/widget_start_1"
+            android:layout_width="@dimen/y26"
+            android:layout_height="@dimen/y26"
+            app:srcCompat="@drawable/ic_list_icon_recommend" />
+
+        <ImageView
+            android:id="@+id/widget_start_2"
+            android:layout_width="@dimen/y26"
+            android:layout_height="@dimen/y26"
+            android:layout_marginLeft="@dimen/x7"
+            app:srcCompat="@drawable/ic_list_icon_recommend" />
+
+        <ImageView
+            android:id="@+id/widget_start_3"
+            android:layout_width="@dimen/y26"
+            android:layout_height="@dimen/y26"
+            android:layout_marginLeft="@dimen/x7"
+            app:srcCompat="@drawable/ic_list_icon_recommend" />
+
+        <ImageView
+            android:id="@+id/widget_start_4"
+            android:layout_width="@dimen/y26"
+            android:layout_height="@dimen/y26"
+            android:layout_marginLeft="@dimen/x7"
+            app:srcCompat="@drawable/ic_list_icon_recommend" />
+
+        <ImageView
+            android:id="@+id/widget_start_5"
+            android:layout_width="@dimen/y26"
+            android:layout_height="@dimen/y26"
+            android:layout_marginLeft="@dimen/x7"
+            app:srcCompat="@drawable/ic_list_icon_recommend" />
+    </LinearLayout>
+</LinearLayout>

@@ -19,12 +19,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.SearchData;
+import com.aoben.qproj.net.QpPostMap;
+import com.aoben.qproj.net.QpRetrofitManager;
+import com.aoben.qproj.util.DataUtil;
 import com.aoben.qproj.util.KeyBoardUtils;
 import com.aoben.qproj.util.LogUtils;
 import com.aoben.qproj.util.Util;
 import com.aoben.qproj.widget.NavEditText;
 import com.aoben.qproj.widget.NavItemUI;
 import com.aoben.qproj.widget.QprojToolBar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by kenway on 18/2/5 15:27
@@ -84,10 +92,20 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
 
-                if (actionId== EditorInfo.IME_ACTION_SEARCH){
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 
+                    if (!Util.isNullOrBlank(nav_et.getEditTextStr()))
+                        search(nav_et.getEditText().getText().toString());
                 }
                 return false;
+            }
+        });
+
+        nav_et.getTextViewSearch().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!Util.isNullOrBlank(nav_et.getEditTextStr()))
+                    search(nav_et.getEditText().getText().toString());
             }
         });
 
@@ -96,13 +114,39 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
 
         if (!Util.isNull(view))
             contentView.addView(view);
-
-
         initView();
         initData();
         initListener();
+    }
 
+    private void search(String searchkey) {
+        //搜索需要一个Map.
+        QpPostMap map = new QpPostMap.Builder().addSearchkey(searchkey).build();
+        QpRetrofitManager.getInstance().getSearchData(map.getMap(), new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
 
+                SearchData data = DataUtil.getSearchData(response.body().toString());
+
+                if (!Util.isNull(data.getBankProduct()) && data.getBankProduct().size() != 0) {
+                    //搜索返回的银行产品为空
+                }
+
+                if (!Util.isNull(data.getRedemption()) && data.getRedemption().size() != 0) {
+                    //搜索返回的赎楼产品为空
+                }
+                if (!Util.isNull(data.getSalesman()) && data.getSalesman().size() != 0) {
+                    //搜索返回的业务员为空
+                }
+                LogUtils.e("data===" + data.toString());
+
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
     }
 
 
@@ -201,9 +245,10 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
 
     /**
      * 获取QprojToolBar控件
+     *
      * @return
      */
-    public  QprojToolBar getToolBar(){
+    public QprojToolBar getToolBar() {
         return qprojToolBar;
     }
 

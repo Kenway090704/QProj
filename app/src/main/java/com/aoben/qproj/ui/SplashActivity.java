@@ -3,12 +3,17 @@ package com.aoben.qproj.ui;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.aoben.qproj.R;
-import com.aoben.qproj.ui.fragment.HomeActivity;
+import com.aoben.qproj.glide.ImageLoader;
+import com.aoben.qproj.model.BannerData;
+import com.aoben.qproj.net.BaseObServer;
+import com.aoben.qproj.net.QpRetrofitManager;
+import com.aoben.qproj.util.LogUtils;
+import com.aoben.qproj.util.Util;
 
 /**
  * Created by kenway on 18/2/27 15:04
@@ -20,20 +25,24 @@ public class SplashActivity extends BaseActivity {
     private TextView time;
     private int currentTime = 3;
 
+    private RelativeLayout rl_default;
     private RelativeLayout rl;
 
-    private boolean isJump=false;
+
+    private ImageView iv;
+
+    private boolean isJump = false;
 
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             currentTime--;
-            time.setText( currentTime + "s");
+            time.setText(currentTime + "s");
             if (currentTime == 0) {
                 //进入MainActivity
 
                 if (!isJump)
-                MainActivity.actionStartClearStack(SplashActivity.this);
+                    MainActivity.actionStartClearStack(SplashActivity.this);
 //                HomeActivity.actionStart(SplashActivity.this);
             } else {
                 handler.sendEmptyMessageDelayed(0, 1000);
@@ -48,8 +57,9 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        rl_default = (RelativeLayout) findViewById(R.id.acty_splash_rl_default);
         rl = (RelativeLayout) findViewById(R.id.acty_splash_rl);
-
+        iv = (ImageView) findViewById(R.id.acty_splash_iv);
         time = (TextView) findViewById(R.id.acty_splash_tv_time);
         time.setText("跳过3s");
         handler.sendEmptyMessage(0);
@@ -57,7 +67,26 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void initData() {
+        QpRetrofitManager.getInstance().getBannersRx().subscribe(new BaseObServer<BannerData>() {
 
+            @Override
+            public void onHandleSuccess(BannerData bannerData) {
+
+
+                if (Util.isNull(bannerData) || Util.isNull(bannerData.getStart()) || bannerData.getStart().size() == 0) {
+
+                    //判断返回的数据是否为空
+
+                    rl_default.setVisibility(View.VISIBLE);
+                } else {
+
+                    LogUtils.e("banner==" + bannerData.toString());
+                    ImageLoader.load(SplashActivity.this, bannerData.getStart().get(0).getImgsrc(), iv);
+                }
+
+
+            }
+        });
     }
 
     @Override
@@ -68,7 +97,7 @@ public class SplashActivity extends BaseActivity {
 
                 MainActivity.actionStartClearStack(SplashActivity.this);
 
-                isJump=true;
+                isJump = true;
             }
         });
     }

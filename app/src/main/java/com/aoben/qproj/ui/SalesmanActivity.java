@@ -10,12 +10,22 @@ import android.view.Gravity;
 import android.view.View;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.SalerBean;
+import com.aoben.qproj.net.BaseObServer;
+import com.aoben.qproj.net.QpRetrofitManager;
 import com.aoben.qproj.ui.adapter.SalesmanAdapter;
 import com.aoben.qproj.ui.adapter.SalesmanDecoration;
+import com.aoben.qproj.ui.hongyang.CommonAdapter;
+import com.aoben.qproj.ui.hongyang.ViewHolder;
+import com.aoben.qproj.util.LogUtils;
+import com.aoben.qproj.util.Util;
+import com.aoben.qproj.widget.SalerItemUI;
 
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.annotations.NonNull;
 
 /**
  * Created by kenway on 18/2/6 14:58
@@ -30,7 +40,8 @@ public class SalesmanActivity extends DrawerBaseActivity {
     private RecyclerView rv;
 
 
-    private List<String> list;
+    private List<SalerBean> list;
+    private CommonAdapter<SalerBean> adapter;
 
     @Override
     protected int getLayoutId() {
@@ -39,25 +50,42 @@ public class SalesmanActivity extends DrawerBaseActivity {
 
     @Override
     protected void initView() {
-        list = new ArrayList<>();
 
-        list.add("jj");
-        list.add("jj");
-        list.add("jj");
-        list.add("jj");
-        list.add("jj");
-        list.add("jj");
-        list.add("jj");
-        list.add("jj");
+
+        QpRetrofitManager.getInstance().getSalers().subscribe(new BaseObServer<List<SalerBean>>() {
+            @Override
+            public void onHandleSuccess(List<SalerBean> salerBeens) {
+                if (Util.isNull(salerBeens)||salerBeens.size()==0){
+
+                }else {
+                    LogUtils.e("salerBeans==" + salerBeens.toString());
+                    list = new ArrayList<>();
+                    list.addAll(salerBeens);
+                    list.addAll(salerBeens);
+                    list.addAll(salerBeens);
+                    list.addAll(salerBeens);
+                    list.addAll(salerBeens);
+                    list.addAll(salerBeens);
+                    list.addAll(salerBeens);
+                    list.addAll(salerBeens);
+                    list.addAll(salerBeens);
+
+                    adapter = new CommonAdapter<SalerBean>(SalesmanActivity.this, R.layout.adapter_saler, list) {
+                        @Override
+                        public void convert(ViewHolder holder, SalerBean s) {
+                            SalerItemUI siu = holder.getView(R.id.adapter_saler_siu);
+                            siu.setData(s);
+                        }
+                    };
+                    rv.setAdapter(adapter);
+                }
+
+            }
+        });
+
 
         rv = (RecyclerView) findViewById(R.id.acty_salesman_rv);
-
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
-
-        rv.setAdapter(new SalesmanAdapter(this, list));
-
-
 
     }
 
@@ -75,9 +103,7 @@ public class SalesmanActivity extends DrawerBaseActivity {
     protected void initListener() {
 
 
-
     }
-
 
 
 }

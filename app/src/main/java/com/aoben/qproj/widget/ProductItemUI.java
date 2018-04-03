@@ -15,7 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.aoben.qproj.R;
-import com.aoben.qproj.model.ProductBean;
+import com.aoben.qproj.glide.ImageLoader;
+import com.aoben.qproj.model.ProductData;
+import com.aoben.qproj.util.LogUtils;
 import com.aoben.qproj.util.Util;
 
 /**
@@ -34,9 +36,11 @@ public class ProductItemUI extends LinearLayout {
     private LinearLayout iv_more;
 
     private ImageView iv_logo;
-    private TextView tv_name, tv_rate, tv_limit, tv_year, tv_person_num, tv_time;
+    private TextView tv_name, tv_rate, tv_limit, tv_year, tv_person_num, tv_time, tv_pay_style, tv_advantage;
 
     private CirclePercentBar circlePercentBar;
+
+    private StarUI star;
 
     public ProductItemUI(Context context) {
         super(context);
@@ -62,27 +66,41 @@ public class ProductItemUI extends LinearLayout {
         layout_tool = (LinearLayout) view.findViewById(R.id.item_layout_tool);
         iv_more = (LinearLayout) view.findViewById(R.id.item_iv_more);
         tv_tool_name = (TextView) view.findViewById(R.id.item_tv_name);
+
+        tv_name = (TextView) view.findViewById(R.id.item_allp_tv_name);
+        iv_logo = (ImageView) view.findViewById(R.id.item_allp_iv_logo);
         tv_rate = (TextView) view.findViewById(R.id.item_allp_tv_rate);
         tv_limit = (TextView) view.findViewById(R.id.item_allp_tv_limit);
         tv_year = (TextView) view.findViewById(R.id.item_allp_tv_year);
         tv_person_num = (TextView) view.findViewById(R.id.item_allp_tv_person_num);
         tv_time = (TextView) view.findViewById(R.id.item_allp_tv_time);
-        circlePercentBar = (CirclePercentBar) view.findViewById(R.id.circle_bar);
-        setData(new ProductBean());
+        circlePercentBar = (CirclePercentBar) view.findViewById(R.id.item_allp_circle_bar);
+        tv_pay_style = (TextView) view.findViewById(R.id.item_allp_tv_pay_style);
+        tv_advantage = (TextView) view.findViewById(R.id.item_allp_tv_advantage);
+        star = (StarUI) view.findViewById(R.id.item_allp_star);
     }
 
 
-    public void setData(ProductBean bean) {
+    public void setData(ProductData.BankProductBean bean) {
 
 
-        setTextColor(tv_rate, "0.629%", "%", "#666666", 0.494f);
-        setTextColor(tv_limit, "1000万", "万", "#666666", 0.65f);
-        setTextColor(tv_year, "3年", "年", "#666666", 0.65f);
-        setTextColor(tv_person_num, "已有365人申请", "365", "#ff9600");
-        setTextColor(tv_time, "最快7天放款", "7", "#ff9600");
+        tv_name.setText(bean.getTitle());
+        setTextColor(tv_rate, bean.getMonthrate() + "%", "%", "#666666", 0.494f);
+        ImageLoader.load(context, bean.getShowimg(), iv_logo);
+        int quota = Integer.parseInt(bean.getQuota()) / 10000;
+        setTextColor(tv_limit, quota + "万", "万", "#666666", 0.65f);
+        setTextColor(tv_year, bean.getAgelimit() + "年", "年", "#666666", 0.65f);
+        setTextColor(tv_person_num, "已有" + bean.getApplynum() + "人申请", bean.getApplynum(), "#ff9600");
+        setTextColor(tv_time, "最快" + bean.getLendday() + "天放款", bean.getLendday(), "#ff9600");
 
 
         circlePercentBar.setPercentData((float) (100 * Math.random()), new DecelerateInterpolator());
+
+        tv_pay_style.setText(bean.getAlsostyle());
+        tv_advantage.setText(bean.getAdvantage());
+
+        star.setStarCount(bean.getLevelstar());
+//        star.setStarCount("2");
     }
 
 
@@ -92,7 +110,7 @@ public class ProductItemUI extends LinearLayout {
         tv_tool_name.setText(name);
 
         if (!Util.isNull(listenerIvMore))
-        iv_more.setOnClickListener(listenerIvMore);
+            iv_more.setOnClickListener(listenerIvMore);
 
 
     }
