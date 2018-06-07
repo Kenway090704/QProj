@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.aoben.qproj.model.BannerData;
 import com.bigkoo.convenientbanner.holder.Holder;
 
-public  class NetworkImageHolderView implements Holder<BannerData.StartBean> {
+public  class NetworkImageHolderView implements Holder<BannerData.IndexBean> {
         private ImageView imageView;
 
         @Override
@@ -18,7 +18,7 @@ public  class NetworkImageHolderView implements Holder<BannerData.StartBean> {
         }
 
         @Override
-        public void UpdateUI(Context context, int position, BannerData.StartBean data) {
+        public void UpdateUI(Context context, int position, BannerData.IndexBean data) {
 //            ImageLoader.load(context, R.drawable.banner, imageView);
             ImageLoader.load(context, data.getImgsrc(), imageView);
         }

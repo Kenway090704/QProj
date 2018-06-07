@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y88"
+    android:background="@color/com_bg_orige_ff9600"
+    android:orientation="horizontal"
+    android:paddingRight="@dimen/x29"
+    android:weightSum="1">
+
+
+    <LinearLayout
+        android:id="@+id/toolbar_iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x29"
+        android:paddingRight="@dimen/x29">
+
+        <ImageView
+            android:layout_width="@dimen/y38"
+            android:layout_height="@dimen/y38"
+            app:srcCompat="@drawable/ic_nav_icon_return" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/toolbar_search_layout"
+        android:layout_width="@dimen/x496"
+        android:layout_height="@dimen/y46"
+        android:layout_centerInParent="true"
+        android:background="@drawable/shape_search_2"
+        android:gravity="center_vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="@dimen/y20"
+            android:layout_height="@dimen/y20"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x16"
+            app:srcCompat="@drawable/ic_nav_icon_search" />
+
+        <EditText
+
+            android:id="@+id/toolbar_search_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x16"
+            android:background="@null"
+            android:singleLine="true"
+            android:text="平安银行"
+            android:textColor="@color/com_tv_white_ffffff"
+            android:textSize="@dimen/comm_tv_10" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/toolbar_iv"
+        android:layout_width="@dimen/x49"
+        android:layout_height="@dimen/y42"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_nav_icon_menu" />
+
+
+    <TextView
+
+        android:id="@+id/toolbar_tv_search"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y42"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:layout_marginTop="@dimen/y10"
+        android:paddingRight="@dimen/x48"
+        android:text="@string/search"
+        android:textColor="@color/com_tv_white_ffffff"
+        android:textSize="@dimen/comm_tv_15" />
+</RelativeLayout>

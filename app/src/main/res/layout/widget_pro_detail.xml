@@ -23,9 +23,9 @@
                 android:layout_marginBottom="@dimen/y28"
                 android:layout_marginLeft="@dimen/x38"
                 android:layout_marginTop="@dimen/y28"
-                android:padding="@dimen/y20"
                 android:background="@drawable/shape_iv_bg_stroke"
-                android:gravity="center">
+                android:gravity="center"
+                android:padding="@dimen/y1">
 
 
                 <ImageView
@@ -34,7 +34,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-
                     android:src="@drawable/detail_icon_pic" />
             </LinearLayout>
 
@@ -186,8 +185,8 @@
                     android:id="@+id/widget_pro_detail_tv_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/year"
                     android:layout_marginTop="@dimen/y6"
+                    android:text="@string/year"
                     android:textColor="@color/com_tv_black_333333"
                     android:textSize="@dimen/comm_tv_23" />
             </LinearLayout>
@@ -319,9 +318,13 @@
             android:layout_height="@dimen/y2"
             android:background="@color/com_bg_gray_eeeeee" />
 
-        <com.aoben.qproj.widget.FlowItemUI
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <!--<com.aoben.qproj.widget.FlowItemUI-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
 
+        <com.aoben.qproj.widget.OperateItemUI
+            android:id="@+id/widget_pro_detail_operate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>

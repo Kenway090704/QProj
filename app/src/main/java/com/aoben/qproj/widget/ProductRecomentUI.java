@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.ProductBean;
+import com.aoben.qproj.model.ProductConfig;
 import com.aoben.qproj.model.ProductData;
 import com.aoben.qproj.ui.AllProductActivity;
 import com.aoben.qproj.ui.ProductDetailActivity;
@@ -53,25 +55,26 @@ public class ProductRecomentUI extends LinearLayout {
         pui_02 = (ProductItemUI) view.findViewById(R.id.widget_allp_pui_02);
         pui_03 = (ProductItemUI) view.findViewById(R.id.widget_allp_pui_03);
 
-        pui_01.setLayoutTool(View.VISIBLE, ResourceUtil.resToStr(R.string.all_product), new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //进入产品列表页
 
-                AllProductActivity.actionStart(context);
-            }
-        });
 
 
     }
 
 
-    public void setData(final List<ProductData.BankProductBean> list) {
+    public void setData(final List<ProductBean> list, final int product_style) {
 
 
         pui_01.setData(list.get(0));
         pui_02.setData(list.get(1));
         pui_03.setData(list.get(2));
+
+        pui_01.setLayoutTool(View.VISIBLE, ResourceUtil.resToStr(R.string.all_product), new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //进入y银行产品列表页
+                AllProductActivity.actionStart(context, product_style);
+            }
+        });
 
 
         pui_01.setOnClickListener(new OnClickListener() {

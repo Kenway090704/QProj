@@ -2,22 +2,21 @@ package com.aoben.qproj.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.view.View;
 
 import com.aoben.qproj.R;
-import com.aoben.qproj.glide.ImageLoader;
 import com.aoben.qproj.glide.NetworkImageHolderView;
+import com.aoben.qproj.model.BannerConfig;
 import com.aoben.qproj.model.BannerData;
-import com.aoben.qproj.model.BaseData;
-import com.aoben.qproj.model.SearchData;
+import com.aoben.qproj.model.ProductConfig;
 import com.aoben.qproj.net.BaseObServer;
 import com.aoben.qproj.net.QpPostMap;
 import com.aoben.qproj.net.QpRetrofitManager;
 import com.aoben.qproj.ui.adapter.BaseFragmentPageAdapter;
-import com.aoben.qproj.util.DataUtil;
 import com.aoben.qproj.util.LogUtils;
 import com.aoben.qproj.util.Util;
 import com.aoben.qproj.widget.CustomTablayout;
@@ -27,17 +26,8 @@ import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import io.reactivex.Observer;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends DrawerBaseActivity {
 
@@ -61,13 +51,9 @@ public class MainActivity extends DrawerBaseActivity {
         cBanner = (ConvenientBanner) findViewById(R.id.acty_main_cbanner);
         indictorView = (IndictorView) findViewById(R.id.acty_main_indicator);
         tab = (CustomTablayout) findViewById(R.id.acty_main_tab);
-
-
         vp = (WrapContentHeightViewPager) findViewById(R.id.acty_main_vp);
         getToolBar().getBackIv().setVisibility(View.GONE);//首页去掉标题中的返回按钮
-
-//        LogUtils.e("屏幕的分辨率:h-->"+ DisplayUtils.getScreenHeightPixels(this)+",w-->"+DisplayUtils.getScreenWidthPixels(this));
-        LogUtils.e("字体大小:9-->" + (int) this.getResources().getDimension(R.dimen.comm_tv_9));
+//      LogUtils.e("屏幕的分辨率:h-->"+ DisplayUtils.getScreenHeightPixels(this)+",w-->"+DisplayUtils.getScreenWidthPixels(this));
 
     }
 
@@ -77,11 +63,6 @@ public class MainActivity extends DrawerBaseActivity {
         initFragments();
 
         testNet();
-
-
-
-
-
     }
 
     private void testNet() {
@@ -121,31 +102,29 @@ public class MainActivity extends DrawerBaseActivity {
 
     private void initCBanner() {
 
+
         QpRetrofitManager.getInstance().getBannersRx().subscribe(new BaseObServer<BannerData>() {
 
             @Override
             public void onHandleSuccess(BannerData bannerData) {
 
-                if (Util.isNull(bannerData) || Util.isNull(bannerData.getIndex()) || bannerData.getIndex().size() == 0) {
 
+
+                if (Util.isNull(bannerData) || Util.isNull(bannerData.getIndex()) || bannerData.getIndex().size() == 0) {
                     //判断返回的数据是否为空
+                    //弹出网络异常
 
                 } else {
-
-                    LogUtils.e("banner==" + bannerData.toString());
-
-                    List<BannerData.StartBean> banners = bannerData.getIndex();
+                    List<BannerData.IndexBean> banners = bannerData.getIndex();
                     addBannerData(banners);
                 }
             }
         });
 
 
-
-
     }
 
-    private void addBannerData(final List<BannerData.StartBean> banners) {
+    private void addBannerData(final List<BannerData.IndexBean> banners) {
 
         indictorView.setIndicatorsSize(banners.size());
 
@@ -164,18 +143,24 @@ public class MainActivity extends DrawerBaseActivity {
                 .setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
-                        //跳转到帖子详情页
-//判断是否有tid和fid
-//                        if (!Util.isNullOrBlank(mData.get(position).getTid())) {
-//                            doJoinTopicActivity(position, holder);
-//                        } else {
-//                            //如果没有tid ,调用默认的浏览器打开该链接
-//                            Intent intent = new Intent();
-//                            intent.setAction("android.intent.action.VIEW");
-//                            Uri content_url = Uri.parse(mData.get(position).getUrl());
-//                            intent.setData(content_url);
-//                            holder.getItemView().getContext().startActivity(intent);
-//                        }
+                        //通过判断IndexBean中的style
+                        if (banners.get(position).getStyle().equals(BannerConfig.STYLE_WEBURL)) {
+                            //style
+                            Intent intent = new Intent();
+                            intent.setAction("android.intent.action.VIEW");
+                            Uri content_url = Uri.parse(banners.get(position).getWeburl());
+                            intent.setData(content_url);
+                            startActivity(intent);
+                        } else if (banners.get(position).getStyle().equals(BannerConfig.STYLE_BANKPRODUCT)) {
+                            //进入银行产品列表
+                            AllProductActivity.actionStart(MainActivity.this, ProductConfig.BANKPRODUCT);
+                        } else if (banners.get(position).getStyle().equals(BannerConfig.STYLE_REEDOMPRODUCT)) {
+                            AllProductActivity.actionStart(MainActivity.this, ProductConfig.REEDOMPRODUCT);
+                            //进入赎楼产品列表
+                        } else if (banners.get(position).getStyle().equals(BannerConfig.STYLE_PRODUCTDETAIL)) {
+                            //进入产品详情页。
+                            ProductDetailActivity.actionStart(MainActivity.this, banners.get(position).getProduct());
+                        }
                     }
                 }).setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -202,19 +187,16 @@ public class MainActivity extends DrawerBaseActivity {
             if (isOnlyOne) {
                 cBanner.stopTurning();
             } else {
-                cBanner.startTurning(2000);
+                cBanner.startTurning(3000);
             }
 
         }
     }
 
     private void initFragments() {
-
-
         fragments = new ArrayList<>();
         fragments.add(new BankPFragment());
         fragments.add(new ReedomPFragment());
-
         adapter = new BaseFragmentPageAdapter(getSupportFragmentManager(), fragments);
         vp.setAdapter(adapter);
 

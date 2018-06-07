@@ -16,8 +16,9 @@ import android.widget.TextView;
 
 import com.aoben.qproj.R;
 import com.aoben.qproj.glide.ImageLoader;
+import com.aoben.qproj.model.ProductBean;
 import com.aoben.qproj.model.ProductData;
-import com.aoben.qproj.util.LogUtils;
+import com.aoben.qproj.util.ResourceUtil;
 import com.aoben.qproj.util.Util;
 
 /**
@@ -81,12 +82,12 @@ public class ProductItemUI extends LinearLayout {
     }
 
 
-    public void setData(ProductData.BankProductBean bean) {
+    public void setData(ProductBean bean) {
 
 
-        tv_name.setText(bean.getTitle());
+        tv_name.setText(ResourceUtil.resToStr(R.string.product_name)+":"+bean.getTitle());
         setTextColor(tv_rate, bean.getMonthrate() + "%", "%", "#666666", 0.494f);
-        ImageLoader.load(context, bean.getShowimg(), iv_logo);
+        ImageLoader.loadNoPlaceHolder(context, bean.getShowimg(), iv_logo);
         int quota = Integer.parseInt(bean.getQuota()) / 10000;
         setTextColor(tv_limit, quota + "万", "万", "#666666", 0.65f);
         setTextColor(tv_year, bean.getAgelimit() + "年", "年", "#666666", 0.65f);
@@ -103,12 +104,10 @@ public class ProductItemUI extends LinearLayout {
 //        star.setStarCount("2");
     }
 
-
     public void setLayoutTool(int isVisible, String name, OnClickListener listenerIvMore) {
 
         layout_tool.setVisibility(isVisible);
         tv_tool_name.setText(name);
-
         if (!Util.isNull(listenerIvMore))
             iv_more.setOnClickListener(listenerIvMore);
 
@@ -118,7 +117,6 @@ public class ProductItemUI extends LinearLayout {
 
     /**
      * 只改变字体颜色
-     *
      * @param tv
      * @param base   原字符串
      * @param change "%"  改变样式的字符串

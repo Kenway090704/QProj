@@ -35,21 +35,16 @@ public class UIHelper {
     private static Button btn;
     private static Dialog dialog;
 
-
     public static void showKonwDialog(final Context context, final int productId) {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_konw, null);
 
         final CustomDialog builder = new CustomDialog(context, 0, 0, view, R.style.dialog);
         //设置对话框显示的View
         builder.show();
-
-
         layout_del = (LinearLayout) builder.findViewById(R.id.dialog_layout_del);
-
         final EditText et_name = (EditText) builder.findViewById(R.id.dialog_know_et_name);
         final EditText et_phone = (EditText) builder.findViewById(R.id.dialog_know_et_phone);
         final CustomRadioButton crb = (CustomRadioButton) builder.findViewById(R.id.dialog_know_crb);
-
         btn = (Button) builder.findViewById(R.id.dialog_konw_btn);
 
         layout_del.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +60,7 @@ public class UIHelper {
             @Override
             public void onClick(View v) {
                 //上传数据
-
+                 //判断是否为电话号码
 
                 if (!Util.isNullOrBlank(et_name.getText().toString()) &&
                         !Util.isNullOrBlank(et_phone.getText().toString())) {
@@ -73,7 +68,6 @@ public class UIHelper {
                             .addUsername(et_name.getText().toString())
                             .addTelephone(et_phone.getText().toString())
                             .addSex(crb.getCurrentIndex() + "").build();
-
 
                     QpRetrofitManager.getInstance().submitIntentUsersFormData(qpPostMap.getMap()).subscribe(new BaseObServer<Object>() {
                         @Override

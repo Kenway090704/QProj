@@ -1,6 +1,7 @@
 package com.aoben.qproj.net;
 
 import com.aoben.qproj.ui.QProjApplication;
+import com.aoben.qproj.util.LogUtils;
 import com.google.gson.Gson;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -83,7 +84,10 @@ public class QpRetrofitManager {
      * @return
      */
     public Observable getBannersRx() {
-        return mApiService.getBannersRx().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        Map map = new QpPostMap.Builder().build().getMap();
+
+        LogUtils.e("获取广告==="+map.toString());
+        return mApiService.getBannersRx(generateRequestBody(map)).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
 
@@ -94,9 +98,12 @@ public class QpRetrofitManager {
      * @return
      */
     public Observable getProductAll() {
-        return mApiService.getProductAll().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
-    }
+        Map map = new QpPostMap.Builder().build().getMap();
 
+
+//        LogUtils.e("获取产品列表=="+map.toString());
+        return mApiService.getProductAll(generateRequestBody(new QpPostMap.Builder().build().getMap())).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
 
     /**
      * 获取明星业务员接口
@@ -104,19 +111,25 @@ public class QpRetrofitManager {
      * @return
      */
     public Observable getSalers() {
-        return mApiService.getSalerAll().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+        Map map = new QpPostMap.Builder().build().getMap();
+
+        return mApiService.getSalerAll(generateRequestBody(map)).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 
 
     /**
      * 搜索数据接口,返回数据json  字段
      *
-     * @param mapSearch
+     * @param keyword
      * @return
      */
-    public void getSearchData(Map<String, String> mapSearch, Callback<String> callback) {
+    public void getSearchData(String keyword, Callback<String> callback) {
 
-        mApiService.getSerachString(generateRequestBody(mapSearch)).enqueue(callback);
+
+        Map map = new QpPostMap.Builder().addSearchkey(keyword).build().getMap();
+
+        LogUtils.e("搜索map==" + map.toString());
+        mApiService.getSerachString(generateRequestBody(map)).enqueue(callback);
     }
 
 
@@ -138,6 +151,7 @@ public class QpRetrofitManager {
                     requestDataMap.get(key) == null ? "" : requestDataMap.get(key));
             requestBodyMap.put(key, requestBody);
         }
+
         return requestBodyMap;
     }
 }

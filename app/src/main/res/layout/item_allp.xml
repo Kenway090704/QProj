@@ -21,8 +21,8 @@
             android:layout_marginBottom="@dimen/y14"
             android:layout_marginLeft="@dimen/x29"
             android:layout_marginTop="@dimen/y14"
-            android:scaleType="centerCrop"
-            android:src="@drawable/list_logo_jianhang" />
+            android:scaleType="centerInside"
+            android:src="@drawable/list_logo_jianhang_1950_385" />
 
         <View
             android:id="@+id/item_allp_view"
@@ -32,16 +32,15 @@
             android:background="@color/com_bg_gray_d6d6d6" />
 
         <TextView
-
             android:id="@+id/item_allp_tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/x29"
-            android:layout_toRightOf="@+id/item_allp_view"
+            android:layout_marginRight="@dimen/x29"
+            android:layout_toRightOf="@id/item_allp_view"
             android:singleLine="true"
-            android:text="@string/product_name"
+            android:text="@string/product_name_ex"
             android:textColor="@color/com_tv_black_333333"
             android:textSize="@dimen/comm_tv_14" />
     </RelativeLayout>

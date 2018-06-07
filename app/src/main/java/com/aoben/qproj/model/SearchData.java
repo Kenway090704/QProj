@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,26 +16,26 @@ import java.util.List;
  * Email : xiaokai090704@126.com
  */
 
-public class SearchData {
+public class SearchData  implements Serializable{
 
 
-    private List<ProductData.BankProductBean> bankProduct;
-    private List<ProductData.BankProductBean> redemption;
+    private List<ProductBean> bankProduct;
+    private List<ProductBean> redemption;
     private List<SalerBean> salesman;
 
-    public List<ProductData.BankProductBean> getBankProduct() {
+    public List<ProductBean> getBankProduct() {
         return bankProduct;
     }
 
-    public void setBankProduct(List<ProductData.BankProductBean> bankProduct) {
+    public void setBankProduct(List<ProductBean> bankProduct) {
         this.bankProduct = bankProduct;
     }
 
-    public List<ProductData.BankProductBean> getRedemption() {
+    public List<ProductBean> getRedemption() {
         return redemption;
     }
 
-    public void setRedemption(List<ProductData.BankProductBean> redemption) {
+    public void setRedemption(List<ProductBean> redemption) {
         this.redemption = redemption;
     }
 

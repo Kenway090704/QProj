@@ -3,6 +3,8 @@ package com.aoben.qproj.ui;
 import android.view.View;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.ProductBean;
+import com.aoben.qproj.model.ProductConfig;
 import com.aoben.qproj.model.ProductData;
 import com.aoben.qproj.model.SalerBean;
 import com.aoben.qproj.net.BaseObServer;
@@ -53,16 +55,19 @@ public class ReedomPFragment extends BaseFragment {
                 if (Util.isNull(productData) || Util.isNull(productData.getRedemption()) || productData.getRedemption().size() == 0) {
 
                 } else {
-                    List<ProductData.BankProductBean> list = productData.getRedemption();
+                    List<ProductBean> list = productData.getRedemption();
 
-                    list.add(productData.getRedemption().get(0));
-                    list.add(productData.getRedemption().get(0));
-                    reedomp_prui.setData(list);
+
+                    if (list.size() > 3) {
+                        list.add(productData.getRedemption().get(0));
+                        list.add(productData.getRedemption().get(1));
+                        list.add(productData.getRedemption().get(2));
+                    } else {
+                        list.addAll(productData.getRedemption());
+                    }
+                    reedomp_prui.setData(list, ProductConfig.REEDOMPRODUCT);
                     addSalers();
-
                 }
-
-
             }
         });
 
@@ -74,17 +79,24 @@ public class ReedomPFragment extends BaseFragment {
      */
     private void addSalers() {
 
-        QpRetrofitManager.getInstance().getSalers().subscribe(new BaseObServer<List<SalerBean>>() {
 
+        QpRetrofitManager.getInstance().getSalers().subscribe(new BaseObServer<List<SalerBean>>() {
             @Override
             public void onHandleSuccess(List<SalerBean> salerBeens) {
-                if (Util.isNull(salerBeens)||salerBeens.size()==0){
 
-                }else {
-                    salerBeens.add(salerBeens.get(0));
-                    salerBeens.add(salerBeens.get(0));
-                    reedomp_srui.setData(salerBeens);
+
+                if (Util.isNull(salerBeens) || salerBeens.size() == 0) {
+                    return;
                 }
+                if (salerBeens.size() > 3) {
+                    salerBeens.add(salerBeens.get(0));
+                    salerBeens.add(salerBeens.get(1));
+                    salerBeens.add(salerBeens.get(2));
+                } else {
+                    salerBeens.addAll(salerBeens);
+                }
+
+                reedomp_srui.setData(salerBeens);
             }
 
         });

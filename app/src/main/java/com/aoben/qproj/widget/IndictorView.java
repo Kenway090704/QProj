@@ -64,12 +64,7 @@ public class IndictorView extends LinearLayout {
         inidicatorMarginLeft = array.getDimensionPixelOffset(R.styleable.IndictorView_indicator_margin_left, DisplayUtils.dp2px(context, inidicatorMarginLeft_default));
         array.recycle();
 
-        LogUtils.e("count=" + count);
-        LogUtils.e("selectIndicatorResid=" + selectIndicatorResid);
-        LogUtils.e("noSelectIndicatorResid=" + noSelectIndicatorResid);
-        LogUtils.e("inidicatorWidhtDp=" + inidicatorWidhtDp);
-        LogUtils.e("inidictorHeightDp=" + inidictorHeightDp);
-        LogUtils.e("inidicatorMarginLeft=" + inidicatorMarginLeft);
+
 
         //  默认的
         // count=0

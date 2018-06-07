@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/acty_splash_rl_default"
@@ -11,6 +10,73 @@
         android:layout_width="match_parent"
         android:background="@color/com_bg_orige_ff9600"
         android:layout_height="match_parent">
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/acty_splash_rl"-->
+            <!--android:layout_width="@dimen/y88"-->
+            <!--android:layout_height="@dimen/y88"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="@dimen/x27"-->
+            <!--android:layout_marginTop="@dimen/y56"-->
+            <!--android:background="@drawable/shape_splash_circle">-->
+
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:layout_marginLeft="@dimen/x20"-->
+                <!--android:layout_marginRight="@dimen/x20"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/jump"-->
+                    <!--android:textColor="@color/com_tv_white_ffffff"-->
+                    <!--android:textSize="@dimen/comm_tv_10" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/acty_splash_tv_time"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="@color/com_tv_white_ffffff"-->
+                    <!--android:textSize="@dimen/comm_tv_10" />-->
+
+            <!--</LinearLayout>-->
+
+
+        <!--</RelativeLayout>-->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y314"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/ic_default_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/y34"
+            android:text="@string/copyright"
+            android:textColor="@color/com_tv_white_ffffff"
+            android:textSize="@dimen/comm_tv_14" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+
+            android:id="@+id/acty_splash_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
 
         <RelativeLayout
             android:id="@+id/acty_splash_rl"
@@ -43,7 +109,6 @@
                     android:id="@+id/acty_splash_tv_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:textColor="@color/com_tv_white_ffffff"
                     android:textSize="@dimen/comm_tv_10" />
 
@@ -51,29 +116,8 @@
 
 
         </RelativeLayout>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/y314"
-            android:layout_centerInParent="true"
-            app:srcCompat="@drawable/ic_default_logo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/y34"
-            android:text="@string/copyright"
-            android:textColor="@color/com_tv_white_ffffff"
-            android:textSize="@dimen/comm_tv_14" />
-
     </RelativeLayout>
-    <ImageView
-        android:id="@+id/acty_splash_iv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY" />
+
 
 
 

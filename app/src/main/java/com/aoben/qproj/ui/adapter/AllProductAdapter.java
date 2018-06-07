@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.ProductBean;
 import com.aoben.qproj.model.ProductData;
 import com.aoben.qproj.ui.ProductDetailActivity;
 import com.aoben.qproj.util.Util;
@@ -25,15 +26,15 @@ import java.util.List;
 public class AllProductAdapter extends RecyclerView.Adapter<AllProductAdapter.MyViewHolder> {
 
     private Context context;
-    private List<ProductData.BankProductBean> listData;
+    private List<ProductBean> listData;
 
-    public AllProductAdapter(Context context, List<ProductData.BankProductBean> listData) {
+    public AllProductAdapter(Context context, List<ProductBean> listData) {
         this.context = context;
         this.listData = listData;
     }
 
 
-    public void addReplyListAndNotify(@NonNull List<ProductData.BankProductBean> replyList) {
+    public void addReplyListAndNotify(@NonNull List<ProductBean> replyList) {
         this.listData.addAll(replyList);
         notifyDataSetChanged();
 //        notifyItemRangeInserted(replys.size() - replyList.size(), replyList.size());

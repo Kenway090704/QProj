@@ -84,8 +84,7 @@ public class SalerItemUI extends LinearLayout {
     public void setData(SalerBean bean) {
 
 
-        ImageLoader.load(context, bean.getAvatar(), iv_photo);
-
+        ImageLoader.loadNoPlaceHolder(context, bean.getAvatar(), iv_photo);
         tv_name.setText(bean.getName());
         tv_des.setText(bean.getSalerange());
         tv_introduce.setText(bean.getMark());

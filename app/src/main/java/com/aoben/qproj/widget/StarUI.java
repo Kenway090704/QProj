@@ -57,8 +57,6 @@ public class StarUI extends LinearLayout {
         iv_04.setVisibility(GONE);
         iv_05.setVisibility(GONE);
     }
-
-
     public void setStarCount(String starCount){
         switch (starCount){
             case  "0":
@@ -102,6 +100,9 @@ public class StarUI extends LinearLayout {
                 iv_03.setVisibility(VISIBLE);
                 iv_04.setVisibility(VISIBLE);
                 iv_05.setVisibility(VISIBLE);
+                break;
+
+            default:
                 break;
         }
 

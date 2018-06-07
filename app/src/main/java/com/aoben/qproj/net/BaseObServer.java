@@ -44,7 +44,6 @@ public abstract class BaseObServer<T> implements Observer<BaseData<T>> {
 
     }
 
-
     @Override
     public void onError(@NonNull Throwable e) {
         LogUtils.e("请求出错=="+e.toString());
@@ -58,7 +57,11 @@ public abstract class BaseObServer<T> implements Observer<BaseData<T>> {
 
     public abstract void onHandleSuccess(T t);
 
-    //错误信息统一处理
+    /**错误信息统一处理
+     *
+     * @param code
+     * @param message
+     */
     void onHandleError(int code, String message) {
         Toast.makeText(QProjApplication.getContext(), message, Toast.LENGTH_LONG).show();
     }

@@ -1,5 +1,6 @@
 package com.aoben.qproj.model;
 
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -19,7 +20,7 @@ public class BannerData {
 
 
     private List<StartBean> start;
-    private List<StartBean> index;
+    private List<IndexBean> index;
 
     public static BannerData objectFromData(String str, String key) {
 
@@ -60,33 +61,27 @@ public class BannerData {
         this.start = start;
     }
 
-    public List<StartBean> getIndex() {
+    public List<IndexBean> getIndex() {
         return index;
     }
 
-    public void setIndex(List<StartBean> index) {
+    public void setIndex(List<IndexBean> index) {
         this.index = index;
     }
 
     public static class StartBean {
-        private int id;
+        private String id;
         private String title;
-        private int type;
+        private String type;
         private String imgsrc;
         private String weburl;
-        private int staytime;
-
-        @Override
-        public String toString() {
-            return "StartBean{" +
-                    "id=" + id +
-                    ", title='" + title + '\'' +
-                    ", type=" + type +
-                    ", imgsrc='" + imgsrc + '\'' +
-                    ", weburl='" + weburl + '\'' +
-                    ", staytime=" + staytime +
-                    '}';
-        }
+        private String staytime;
+        private String status;
+        private String sort;
+        private String addtm;
+        private String style;
+        private String product_id;
+        private ProductBean product;
 
         public static StartBean objectFromData(String str, String key) {
 
@@ -119,11 +114,11 @@ public class BannerData {
 
         }
 
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 
@@ -135,11 +130,11 @@ public class BannerData {
             this.title = title;
         }
 
-        public int getType() {
+        public String getType() {
             return type;
         }
 
-        public void setType(int type) {
+        public void setType(String type) {
             this.type = type;
         }
 
@@ -159,20 +154,204 @@ public class BannerData {
             this.weburl = weburl;
         }
 
-        public int getStaytime() {
+        public String getStaytime() {
             return staytime;
         }
 
-        public void setStaytime(int staytime) {
+        public void setStaytime(String staytime) {
             this.staytime = staytime;
         }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getSort() {
+            return sort;
+        }
+
+        public void setSort(String sort) {
+            this.sort = sort;
+        }
+
+        public String getAddtm() {
+            return addtm;
+        }
+
+        public void setAddtm(String addtm) {
+            this.addtm = addtm;
+        }
+
+        public String getStyle() {
+            return style;
+        }
+
+        public void setStyle(String style) {
+            this.style = style;
+        }
+
+        public String getProduct_id() {
+            return product_id;
+        }
+
+        public void setProduct_id(String product_id) {
+            this.product_id = product_id;
+        }
+
+        public ProductBean getProduct() {
+            return product;
+        }
+
+        public void setProduct(ProductBean product) {
+            this.product = product;
+        }
+
+
     }
 
-    @Override
-    public String toString() {
-        return "BannerData{" +
-                "start=" + start +
-                ", index=" + index +
-                '}';
+    public static class IndexBean {
+        private String id;
+        private String title;
+        private String type;
+        private String imgsrc;
+        private String weburl;
+        private String staytime;
+        private String status;
+        private String sort;
+        private String addtm;
+        private String style;
+        private String product_id;
+        private ProductBean product;
+
+        public static IndexBean objectFromData(String str, String key) {
+
+            try {
+                JSONObject jsonObject = new JSONObject(str);
+
+                return new Gson().fromJson(jsonObject.getJSONObject(key).toString(), IndexBean.class);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        public static List<IndexBean> arrayIndexBeanFromData(String str, String key) {
+
+            try {
+                JSONObject jsonObject = new JSONObject(str);
+                Type listType = new TypeToken<ArrayList<IndexBean>>() {
+                }.getType();
+
+                return new Gson().fromJson(jsonObject.getJSONArray(key).toString(), listType);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return new ArrayList();
+
+
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getImgsrc() {
+            return imgsrc;
+        }
+
+        public void setImgsrc(String imgsrc) {
+            this.imgsrc = imgsrc;
+        }
+
+        public String getWeburl() {
+            return weburl;
+        }
+
+        public void setWeburl(String weburl) {
+            this.weburl = weburl;
+        }
+
+        public String getStaytime() {
+            return staytime;
+        }
+
+        public void setStaytime(String staytime) {
+            this.staytime = staytime;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
+
+        public String getSort() {
+            return sort;
+        }
+
+        public void setSort(String sort) {
+            this.sort = sort;
+        }
+
+        public String getAddtm() {
+            return addtm;
+        }
+
+        public void setAddtm(String addtm) {
+            this.addtm = addtm;
+        }
+
+        public String getStyle() {
+            return style;
+        }
+
+        public void setStyle(String style) {
+            this.style = style;
+        }
+
+        public String getProduct_id() {
+            return product_id;
+        }
+
+        public void setProduct_id(String product_id) {
+            this.product_id = product_id;
+        }
+
+        public ProductBean getProduct() {
+            return product;
+        }
+
+        public void setProduct(ProductBean product) {
+            this.product = product;
+        }
     }
 }

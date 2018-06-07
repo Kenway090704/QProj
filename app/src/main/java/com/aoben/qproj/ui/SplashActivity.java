@@ -23,12 +23,10 @@ import com.aoben.qproj.util.Util;
 public class SplashActivity extends BaseActivity {
 
     private TextView time;
-    private int currentTime = 3;
+    private int currentTime = 4;
 
     private RelativeLayout rl_default;
     private RelativeLayout rl;
-
-
     private ImageView iv;
 
     private boolean isJump = false;
@@ -40,10 +38,8 @@ public class SplashActivity extends BaseActivity {
             time.setText(currentTime + "s");
             if (currentTime == 0) {
                 //进入MainActivity
-
                 if (!isJump)
                     MainActivity.actionStartClearStack(SplashActivity.this);
-//                HomeActivity.actionStart(SplashActivity.this);
             } else {
                 handler.sendEmptyMessageDelayed(0, 1000);
             }
@@ -61,30 +57,21 @@ public class SplashActivity extends BaseActivity {
         rl = (RelativeLayout) findViewById(R.id.acty_splash_rl);
         iv = (ImageView) findViewById(R.id.acty_splash_iv);
         time = (TextView) findViewById(R.id.acty_splash_tv_time);
-        time.setText("跳过3s");
+        time.setText("3s");
         handler.sendEmptyMessage(0);
     }
-
     @Override
     public void initData() {
         QpRetrofitManager.getInstance().getBannersRx().subscribe(new BaseObServer<BannerData>() {
 
             @Override
             public void onHandleSuccess(BannerData bannerData) {
-
-
                 if (Util.isNull(bannerData) || Util.isNull(bannerData.getStart()) || bannerData.getStart().size() == 0) {
-
                     //判断返回的数据是否为空
-
                     rl_default.setVisibility(View.VISIBLE);
                 } else {
-
-                    LogUtils.e("banner==" + bannerData.toString());
                     ImageLoader.load(SplashActivity.this, bannerData.getStart().get(0).getImgsrc(), iv);
                 }
-
-
             }
         });
     }
@@ -96,7 +83,6 @@ public class SplashActivity extends BaseActivity {
             public void onClick(View v) {
 
                 MainActivity.actionStartClearStack(SplashActivity.this);
-
                 isJump = true;
             }
         });

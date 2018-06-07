@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.aoben.qproj.R;
 import com.aoben.qproj.glide.ImageLoader;
+import com.aoben.qproj.model.ProductBean;
 import com.aoben.qproj.model.ProductData;
 import com.aoben.qproj.model.ProductDetailBean;
 import com.aoben.qproj.util.UIHelper;
@@ -35,6 +36,8 @@ public class ProductDetailItem extends LinearLayout {
 
 
     private Button btn;
+
+    private  OperateItemUI operate;
 
     public ProductDetailItem(Context context) {
         super(context);
@@ -71,11 +74,11 @@ public class ProductDetailItem extends LinearLayout {
         btn = (Button) view.findViewById(R.id.widget_pro_detail_btn);
         tv_condition = (TextView) view.findViewById(R.id.widget_pro_detail_tv_condition);
         tv_material = (TextView) view.findViewById(R.id.widget_pro_detail_tv_material);
-
+      operate= (OperateItemUI) view.findViewById(R.id.widget_pro_detail_operate);
 
     }
 
-    public void setData(final ProductData.BankProductBean bean) {
+    public void setData(final ProductBean bean) {
 
         ImageLoader.load(context, bean.getLogo(), iv);
         tv_name.setText(bean.getTitle());
@@ -89,11 +92,13 @@ public class ProductDetailItem extends LinearLayout {
         btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                UIHelper.showKonwDialog(context, bean.getId());
+                UIHelper.showKonwDialog(context, Integer.parseInt(bean.getId()));
             }
         });
         tv_condition.setText(bean.getCondition());
         tv_material.setText(bean.getMaterial());
+        operate.setIv(bean.getOperate());
+
     }
 
 

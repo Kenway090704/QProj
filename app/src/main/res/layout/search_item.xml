@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@color/com_bg_white_ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/x29">
+
+        <TextView
+
+            android:id="@+id/search_item_tv_name_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="平安银行"
+            android:textColor="@color/com_tv_black_333333"
+            android:textSize="@dimen/comm_tv_14" />
+
+        <TextView
+            android:id="@+id/search_item_tv_name_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x9"
+            android:gravity="center_vertical"
+            android:text=" xxxxx欢迎你"
+            android:textColor="@color/com_tv_gray_999999"
+            android:textSize="@dimen/comm_tv_14" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y2"
+        android:background="@color/com_bg_gray_eeeeee" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y20"
+        android:text="申请条件"
+        android:layout_marginLeft="@dimen/x29"
+        android:layout_marginRight="@dimen/x29"
+        android:singleLine="true"
+        android:textColor="@color/com_tv_gray_666666"
+        android:textSize="@dimen/comm_tv_12" />
+    <TextView
+        android:id="@+id/search_item_tv_condition_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y20"
+        android:text="1.借款人年龄18-60周岁,产权人年龄18-65周岁"
+        android:layout_marginLeft="@dimen/x29"
+        android:layout_marginRight="@dimen/x29"
+        android:maxLines="2"
+        android:textColor="@color/com_tv_gray_666666"
+        android:textSize="@dimen/comm_tv_12" />
+    <!--<TextView-->
+        <!--android:id="@+id/search_item_tv_condition_2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/y20"-->
+        <!--android:text="2.借款人可为中国香港人,产权人必须为中国大陆人"-->
+        <!--android:layout_marginLeft="@dimen/x29"-->
+        <!--android:layout_marginRight="@dimen/x29"-->
+        <!--android:singleLine="true"-->
+        <!--android:textColor="@color/com_tv_gray_666666"-->
+        <!--android:textSize="@dimen/comm_tv_12" />-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y14"
+        android:layout_marginTop="@dimen/y20"
+        android:background="@color/com_bg_gray_eeeeee" />
+
+</LinearLayout>

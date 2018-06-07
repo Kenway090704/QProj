@@ -4,7 +4,6 @@ import com.aoben.qproj.model.BannerData;
 import com.aoben.qproj.model.BaseData;
 import com.aoben.qproj.model.ProductData;
 import com.aoben.qproj.model.SalerBean;
-import com.aoben.qproj.ui.PostData;
 
 
 import java.util.List;
@@ -13,10 +12,6 @@ import java.util.Map;
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.http.Body;
-import retrofit2.http.FieldMap;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PartMap;
@@ -52,27 +47,27 @@ public interface QpApiService {
      * @param
      * @return
      */
-
+    @Multipart
     @POST("Advert/All")
-    Observable<BaseData<BannerData>> getBannersRx();
+    Observable<BaseData<BannerData>> getBannersRx(@PartMap Map<String, RequestBody> requestBodyMap);
 
     /**
      * 获取银行产品和赎楼产品
      * @param
      * @return
      */
-
+    @Multipart
     @POST("Product/All")
-    Observable<BaseData<ProductData>> getProductAll();
+    Observable<BaseData<ProductData>> getProductAll(@PartMap Map<String, RequestBody> requestBodyMap);
 
 
     /**
      * 明星业务员数据接口
      * @return
      */
-
+    @Multipart
     @POST("Product/Salesman")
-    Observable<BaseData<List<SalerBean>>> getSalerAll();
+    Observable<BaseData<List<SalerBean>>> getSalerAll(@PartMap Map<String, RequestBody> requestBodyMap);
 
 
 

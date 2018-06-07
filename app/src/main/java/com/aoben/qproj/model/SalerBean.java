@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +16,14 @@ import java.util.List;
  * Email : xiaokai090704@126.com
  */
 
-public class SalerBean {
+public class SalerBean implements Serializable{
 
 
-    private int id;
+    private String id;
     private String name;
+    private String status;
+    private String top;
+    private String sort;
     private String avatar;
     private String salerange;
     private String mark;
@@ -55,11 +59,11 @@ public class SalerBean {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -69,6 +73,30 @@ public class SalerBean {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getTop() {
+        return top;
+    }
+
+    public void setTop(String top) {
+        this.top = top;
+    }
+
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
     }
 
     public String getAvatar() {
@@ -98,8 +126,11 @@ public class SalerBean {
     @Override
     public String toString() {
         return "SalerBean{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", status='" + status + '\'' +
+                ", top='" + top + '\'' +
+                ", sort='" + sort + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", salerange='" + salerange + '\'' +
                 ", mark='" + mark + '\'' +

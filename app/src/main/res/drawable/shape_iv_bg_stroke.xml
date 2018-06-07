@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
- <stroke android:color="@color/com_bg_gray_999999" android:width="@dimen/y2"/>
+ <stroke android:color="@color/com_bg_gray_999999" android:width="@dimen/y1"/>
 </shape>

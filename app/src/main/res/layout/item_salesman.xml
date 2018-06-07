@@ -22,16 +22,16 @@
             android:id="@+id/item_salerman_iv"
             android:layout_width="@dimen/y200"
             android:layout_height="@dimen/y280"
-            android:scaleType="centerCrop"
             android:layout_gravity="center_vertical"
             android:layout_marginBottom="@dimen/y20"
             android:layout_marginTop="@dimen/y20"
-            android:src="@drawable/touxiang" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/touxiang_1500_2100" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           android:layout_gravity="center_vertical"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/x29"
             android:orientation="vertical">
 
@@ -60,10 +60,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/y14"
 
+                android:singleLine="true"
                 android:text="@string/line_of_business_hint"
                 android:textColor="@color/com_tv_black_333333"
-                android:textSize="@dimen/comm_tv_13"
-                />
+                android:textSize="@dimen/comm_tv_13" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/y14"
                 android:lineSpacingExtra="@dimen/y6"
+                android:maxLines="2"
                 android:text="@string/business_introduction_hint"
                 android:textColor="@color/com_tv_black_333333"
                 android:textSize="@dimen/comm_tv_13" />

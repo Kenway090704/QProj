@@ -1,10 +1,11 @@
 package com.aoben.qproj.net;
 
-import android.app.AlertDialog;
+import com.aoben.qproj.net.sha.SHA1;
+import com.aoben.qproj.util.LogUtils;
+import com.aoben.qproj.util.SystemUtil;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * Created by kenway on 18/3/21 14:16
@@ -39,11 +40,32 @@ public class QpPostMap {
         private static String KEY_SEARCH = "searchkey";
 
 
+        private static String KEY_SIGNATURE = "signature";
+        private static String KEY_NONCE = "nonce";
+        private static String KEY_TIMESTAMP = "timestamp";
+
+
+        public static String TOKEN = "TFAly3PoALdxuAtv";
+        public static String NONCE = "AeQhkQfCQP";
+
         Map<String, String> buiderMap;
 
 
         public Builder() {
             buiderMap = new HashMap<>();
+
+            long mills = SystemUtil.getCurrentTime();
+
+            String base = mills + NONCE + TOKEN;
+
+            String signature = SHA1.encode(base);
+
+//            LogUtils.e("mills=="+mills);
+//            LogUtils.e("base=="+base);
+//            LogUtils.e("signature=="+signature);
+            buiderMap.put(KEY_SIGNATURE, signature);
+            buiderMap.put(KEY_NONCE, NONCE);
+            buiderMap.put(KEY_TIMESTAMP, mills + "");
 
         }
 
@@ -74,16 +96,16 @@ public class QpPostMap {
             return this;
         }
 
-        public  Builder addSearchkey(String searchkey){
-            buiderMap.put(KEY_SEARCH,searchkey);
+        public Builder addSearchkey(String searchkey) {
+            buiderMap.put(KEY_SEARCH, searchkey);
             return this;
         }
+
         public QpPostMap build() {
 
             return new QpPostMap(buiderMap);
 
         }
-
 
 
     }

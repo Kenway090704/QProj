@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.ProductBean;
+import com.aoben.qproj.model.ProductConfig;
 import com.aoben.qproj.model.ProductData;
 import com.aoben.qproj.model.SalerBean;
 import com.aoben.qproj.net.BaseObServer;
@@ -67,21 +69,26 @@ public class BankPFragment extends BaseFragment {
                 //获取银行产品
 
 
-                if (Util.isNull(productData)||Util.isNull(productData.getBankProduct())||productData.getBankProduct().size()==0){
+                if (Util.isNull(productData) || Util.isNull(productData.getBankProduct()) || productData.getBankProduct().size() == 0) {
 
-                }else {
-                    List<ProductData.BankProductBean> list = productData.getBankProduct();
-                    list.add(productData.getBankProduct().get(0));
-                    list.add(productData.getBankProduct().get(0));
-                    bankp_prui.setData(list);
+                } else {
+                    List<ProductBean> list = productData.getBankProduct();
 
+                    if (list.size() > 3) {
+                        list.add(productData.getBankProduct().get(0));
+                        list.add(productData.getBankProduct().get(1));
+                        list.add(productData.getBankProduct().get(2));
+                    } else {
+                        list.addAll(productData.getBankProduct());
+                    }
+                    bankp_prui.setData(list, ProductConfig.BANKPRODUCT);
+                    addSalers();
                     addSalers();
                 }
 
             }
         });
     }
-
 
     /**
      * 添加明星业务员
@@ -93,13 +100,21 @@ public class BankPFragment extends BaseFragment {
             @Override
             public void onHandleSuccess(List<SalerBean> salerBeens) {
 
-                if (Util.isNull(salerBeens)||salerBeens.size()==0){
-
-                }else {
-                    salerBeens.add(salerBeens.get(0));
-                    salerBeens.add(salerBeens.get(0));
-                    bankp_srui.setData(salerBeens);
+                if (Util.isNull(salerBeens) || salerBeens.size() == 0) {
+                    return;
                 }
+                if (salerBeens.size() > 3) {
+
+
+                    salerBeens.add(salerBeens.get(0));
+                    salerBeens.add(salerBeens.get(1));
+                    salerBeens.add(salerBeens.get(2));
+
+                } else {
+                    salerBeens.addAll(salerBeens);
+                }
+
+                bankp_srui.setData(salerBeens);
             }
 
         });

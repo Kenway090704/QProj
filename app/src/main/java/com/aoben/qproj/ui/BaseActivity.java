@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
@@ -23,8 +24,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
-
-
     private LinearLayout  contentView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,4 +95,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onDestroy();
         QProjApplication.getIns().remove(this);
     }
+
+
 }

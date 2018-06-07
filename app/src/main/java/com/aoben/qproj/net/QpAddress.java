@@ -10,7 +10,8 @@ public class QpAddress {
     public  static void  setDebug(boolean isDebug){
 
         if (isDebug){
-            baseUrl="http://m.wxts.cqjyck.com/Api/";
+//            baseUrl="http://m.wxts.cqjyck.com/Api/";
+            baseUrl="http://a.qiandaifax.com/api/";
         }else {
             baseUrl="http://api.club.auldey.com/";
         }

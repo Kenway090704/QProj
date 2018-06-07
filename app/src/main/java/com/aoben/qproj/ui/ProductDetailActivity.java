@@ -6,6 +6,7 @@ import android.preference.PreferenceActivity;
 import android.widget.ScrollView;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.ProductBean;
 import com.aoben.qproj.model.ProductData;
 import com.aoben.qproj.net.QpRetrofitManager;
 import com.aoben.qproj.util.LogUtils;
@@ -24,13 +25,13 @@ public class ProductDetailActivity extends DrawerBaseActivity {
 
     private ScrollView scrollview;
 
-    private ProductData.BankProductBean bean;
+    private ProductBean bean;
 
     private ProductDetailItem prodetail;
 
     @Override
     protected int getLayoutId() {
-        bean = (ProductData.BankProductBean) getIntent().getSerializableExtra(PRODUCT);
+        bean = (ProductBean) getIntent().getSerializableExtra(PRODUCT);
         return R.layout.activity_prodetail;
     }
 
@@ -39,12 +40,12 @@ public class ProductDetailActivity extends DrawerBaseActivity {
         prodetail= (ProductDetailItem) findViewById(R.id.acty_prodetail);
         scrollview= (ScrollView) findViewById(R.id.acty_prodetial_scrollview);
         //给控件设置弹性效果
-        OverScrollDecoratorHelper.setUpStaticOverScroll(scrollview, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
+//        OverScrollDecoratorHelper.setUpStaticOverScroll(scrollview, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
     }
 
     @Override
     public void initData() {
-        LogUtils.e("bean==="+bean.toString());
+
         prodetail.setData(bean);
     }
 
@@ -53,9 +54,8 @@ public class ProductDetailActivity extends DrawerBaseActivity {
 
     }
 
-    public static void actionStart(Context context, ProductData.BankProductBean bean) {
+    public static void actionStart(Context context,ProductBean bean) {
         Intent intent = new Intent(context, ProductDetailActivity.class);
-
         intent.putExtra(PRODUCT, bean);
         context.startActivity(intent);
     }

@@ -20,7 +20,9 @@ public class LogUtils {
     public static final int ASSERT = android.util.Log.ASSERT;
 
 
-    //    输出什么级别的日志
+    /**   输出什么级别的日志
+     *
+     */
     public static final int LEVEL = VERBOSE;
 
     public static final String SEPARATOR = ",";
@@ -32,9 +34,6 @@ public class LogUtils {
     public  static  void  initLog(boolean isdebug){
         isDebug=isdebug;
     }
-
-
-
 
     /**
      * VERBOSE
@@ -200,7 +199,7 @@ public class LogUtils {
      */
     public static String getDefaultTag(StackTraceElement stackTraceElement) {
         String fileName = stackTraceElement.getFileName();
-        String stringArray[] = fileName.split("\\.");
+        String[] stringArray = fileName.split("\\.");
         String tag = stringArray[0];
         return tag;
     }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.ProductBean;
 import com.aoben.qproj.model.ProductData;
 import com.aoben.qproj.model.SalerBean;
 
@@ -22,7 +23,7 @@ public class BankPAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
 
     private Context context;
-    private List<ProductData.BankProductBean> productBeens;
+    private List<ProductBean> productBeens;
     private List<SalerBean> salerBeens;
 
     private static int TYPE_ALLP = 0;

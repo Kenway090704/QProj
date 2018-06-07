@@ -65,6 +65,7 @@ public class SalerRecomendUI extends LinearLayout {
 
     public  void setData(List<SalerBean> list){
 
+
         siu01.setData(list.get(0));
         siu02.setData(list.get(1));
         siu03.setData(list.get(2));

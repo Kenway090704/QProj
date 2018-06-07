@@ -1,5 +1,9 @@
 package com.aoben.qproj.ui;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
@@ -19,16 +23,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.aoben.qproj.R;
+import com.aoben.qproj.model.ProductConfig;
 import com.aoben.qproj.model.SearchData;
 import com.aoben.qproj.net.QpPostMap;
 import com.aoben.qproj.net.QpRetrofitManager;
 import com.aoben.qproj.util.DataUtil;
 import com.aoben.qproj.util.KeyBoardUtils;
 import com.aoben.qproj.util.LogUtils;
+import com.aoben.qproj.util.TaskUtil;
 import com.aoben.qproj.util.Util;
 import com.aoben.qproj.widget.NavEditText;
 import com.aoben.qproj.widget.NavItemUI;
 import com.aoben.qproj.widget.QprojToolBar;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -119,27 +127,22 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
         initListener();
     }
 
-    private void search(String searchkey) {
+    private void search(final String searchkey) {
         //搜索需要一个Map.
-        QpPostMap map = new QpPostMap.Builder().addSearchkey(searchkey).build();
-        QpRetrofitManager.getInstance().getSearchData(map.getMap(), new Callback<String>() {
+
+        QpRetrofitManager.getInstance().getSearchData(searchkey, new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
 
                 SearchData data = DataUtil.getSearchData(response.body().toString());
 
-                if (!Util.isNull(data.getBankProduct()) && data.getBankProduct().size() != 0) {
-                    //搜索返回的银行产品为空
-                }
 
-                if (!Util.isNull(data.getRedemption()) && data.getRedemption().size() != 0) {
-                    //搜索返回的赎楼产品为空
+                LogUtils.e("");
+                SearchActivity.actionStart(DrawerBaseActivity.this, data, searchkey);
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    nav_et.getEditText().getText().clear();
                 }
-                if (!Util.isNull(data.getSalesman()) && data.getSalesman().size() != 0) {
-                    //搜索返回的业务员为空
-                }
-                LogUtils.e("data===" + data.toString());
-
             }
 
             @Override
@@ -174,8 +177,7 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
             @Override
             public void onClick(View v) {
                 drawerLayout.closeDrawer(GravityCompat.START);
-                AllProductActivity.actionStart(v.getContext());
-
+                AllProductActivity.actionStart(v.getContext(), ProductConfig.BANKPRODUCT);
 
             }
         });
@@ -185,7 +187,8 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
             public void onClick(View v) {
                 //进入赎楼产品页
                 drawerLayout.closeDrawer(GravityCompat.START);
-                AllProductActivity.actionStart(v.getContext());
+                AllProductActivity.actionStart(v.getContext(), ProductConfig.REEDOMPRODUCT);
+
             }
         });
 
@@ -253,7 +256,12 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
     }
 
 
-    //DrawerLayout的监听事件
+    /**
+     * DrawerLayout的监听事件
+     *
+     * @param drawerView
+     * @param slideOffset
+     */
     @Override
     public void onDrawerSlide(View drawerView, float slideOffset) {
 
@@ -305,6 +313,8 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Dr
             super.onBackPressed();
         }
     }
+
+
 
 
 }
